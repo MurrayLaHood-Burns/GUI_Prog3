@@ -5,9 +5,19 @@ List
 {
 	font-family:Arial, Helvetica, sans-serif;
 	padding:5px;
+	height:20px;
 	text-decoration:none;
 	display:inline-block;
 	font-size:12px;
+}
+
+/*****************************************************************************
+Check
+******************************************************************************/
+.check
+{
+	width:20px;
+	margin:0;
 }
 
 /*****************************************************************************
@@ -16,7 +26,6 @@ Header
 .header
 {
 	border:1px solid black;
-	width:150px;
 	color:white;
 	width:100px;
 	margin:0;
@@ -27,9 +36,7 @@ Course
 ******************************************************************************/
 .course
 {
-	border-bottom:1px solid black;
-	border-left:1px solid black;
-	border-right:1px solid black;
+	border:1px solid black;
 	width:100px;
 	margin:0;
 }
@@ -39,15 +46,14 @@ Credits
 ******************************************************************************/
 .credit
 {
-	border-bottom:1px solid black;
-	border-right:1px solid black;
+	border:1px solid black;
 	width:50px;
 	margin:0;
 }
 
 .total
 {
-	border-top:1px solid black;
+	border:1px solid black;
 	color:white;
 }
 
@@ -62,6 +68,15 @@ Links
 	width:150px;
 	text-align:center;
 	cursor:pointer;
+}
+
+/*****************************************************************************
+Hover
+******************************************************************************/
+a:hover
+{
+	border:1px solid black;
+	
 }
 
 /*****************************************************************************
