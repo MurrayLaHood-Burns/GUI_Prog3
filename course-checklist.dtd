@@ -1,0 +1,115 @@
+<?xml version = "1.0" encoding "utf-8" ?>
+
+<!-- courseList.dtd - a document type for a students check list that references
+courseList.xml and subsequently math.xml and csc.xml -->
+
+<!ELEMENT checkList (cscFresh, cscSoph, cscJunior, cscSenior, cscElective, math, mathElective, science, libArts, english, free)>
+<!ELEMENT cscFresh (course+)>
+<!ELEMENT cscSoph (course+)>
+<!ELEMENT cscJunior (course+)>
+<!ELEMENT cscSenior(course+)>
+<!ELEMENT cscElective (course+)>
+<!ELEMENT math (course+)>
+<!ELEMENT mathElective (course+)>
+<!ELEMENT science (course+)>
+<!ELEMENT libArts (course+)>
+<!ELEMENT english (course+)>
+<!ELEMENT free (course+)>
+<!ELEMENT course (title, grade?, credits)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT grade (#PCDATA)>
+<!ELEMENT credits (#PCDATA)>
+
+
+<!ATTLIST isComplete course #REQUIRED>
+<!-- attribute will be used like this: <course isComplete="yes"> </course> --> 
+
+<!-- XML mockup based on above DTD
+<checkList>	
+	<cscFresh>
+		<course isComplete="yes">
+			<title></title>
+			<grade></grade>
+			<credits></credits></course>
+
+		<course isComplete="yes">
+			<title></title>
+			<grade></grade>
+			<credits></credits></course>
+
+		<course isComplete="yes">
+			<title></title>
+			<grade></grade>
+			<credits></credits></course>
+
+		<course isComplete="yes">
+			<title></title>
+			<grade></grade>
+			<credits></credits></course>
+
+		<course isComplete="yes">
+			<title></title>
+			<grade></grade>
+			<credits></credits></course>
+	</cscFresh>
+
+	<cscSoph>
+		<course isComplete="yes">
+			<title></title>
+			<grade></grade>
+			<credits></credits></course>
+	</cscSoph>
+	<cscJunior>
+		<course isComplete="yes">
+			<title></title>
+			<grade></grade>
+			<credits></credits></course>
+	</junior>
+	<cscSenior>
+		<course isComplete="yes">
+			<title></title>
+			<grade></grade>
+			<credits></credits></course>
+	</cscSenior>
+	<cscElective>
+		<course isComplete="yes">
+			<title></title>
+			<grade></grade>
+			<credits></credits></course>
+	</cscElective>
+	<math>
+		<course isComplete="yes">
+			<title></title>
+			<grade></grade>
+			<credits></credits></course>
+	</math>
+	<science>
+		<course isComplete="yes">
+			<title></title>
+			<grade></grade>
+			<credits></credits></course>
+	</science>
+	<libArts>
+		<course isComplete="yes">
+			<title></title>
+			<grade></grade>
+			<credits></credits></course>
+	</libArts>
+	<english>
+		<course isComplete="yes">
+			<title></title>+
+			<grade></grade>
+			<credits></credits></course>
+	</english>
+	<free>
+		<course isComplete="yes">
+			<title></title>+
+			<grade></grade>
+			<credits></credits></course>
+	</free>
+</checklist>
+-->
+
+
+
+
