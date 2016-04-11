@@ -4,56 +4,68 @@
 <link rel="stylesheet" type="text/css" href="checklist.css">
 <script src="checklist.js"></script>
 </head>
-<body>
+<body
+	onload="setCreditsTotal('CSC_Freshman')">
 <!-- name = column, id = row -->
 
 <!-- CSC Freshman -->
 <table class="table" id="CSC_Freshman">
 
 	<!-- Row: Header -->
-	<tr id="header">
+	<tr id="cscFresh" name="tableHeader">
 	
 		<!-- Main Check Box -->
 		<td class="list check">
-			<input type="checkbox"value="check"
+			<input type="checkbox" value="check" name="tableCheckBox"
 				onchange="checkTable('CSC_Freshman','rgba(0, 153, 204, .25)')">
 		</td>
 		
 		<!-- Course Category -->
-		<td class="list header CSC">CSC Freshman</td>
+		<td class="list header CSC" name="tableCategory">
+			CSC Freshman
+		</td>
 		
 		<!-- Total Credits -->
-		<td class="list credit total CSC" name="">1/4</td>
+		<td class="list credit total CSC" name="tableCredits"
+			onclick="setCreditsTotal('CSC_Freshman')">
+		</td>
 		
 		<!-- GPA -->
-		<td class="list grade total CSC">4.0</td>
+		<td class="list grade total CSC" name="tableGPA">
+			4.0
+		</td>
 		
 	</tr>
 	
 	<!-- Row: CSC110 -->
-	<tr id="csc110">
+	<tr id="csc110" name="course">
 	
 		<!-- Check Box -->
-		<td class="list check" id="csc110_check">
-			<input type="checkbox" value="check"
-				onchange="checkRow('csc110','rgba(0, 153, 204, .25)')">
+		<td class="list check">
+			<input type="checkbox" value="check" name="courseCheckBox"
+				onchange="checkRow('csc110','rgba(0, 153, 204, .25)');
+					setCreditsTotal('CSC_Freshman')">
 		</td>
 		
 		<!-- Course ID -->
-		<td class="list course" id="csc110_id">CSC110</td>
+		<td class="list course" name="courseID">
+			CSC110
+		</td>
 		
 		<!-- Credits -->
-		<td class="list credit" id="csc110_cred">1</td>
+		<td class="list credit" name="courseCredits">
+			1
+		</td>
 		
 		<!-- Grade Dropdown -->
-		<td id="csc110_grade">
-			<select class="list dropdown">
-				<option value="null"></option>
-				<option value="A">A</option>
-				<option value="B">B</option>
-				<option value="C">C</option>
-				<option value="D">D</option>
-				<option value="F">F</option>
+		<td>
+			<select class="list dropdown" name="courseGrade">
+				<option value="0"></option>
+				<option value="4">A</option>
+				<option value="3">B</option>
+				<option value="2">C</option>
+				<option value="1">D</option>
+				<option value="0">F</option>
 				<option value="EX">EX</option>
 			</select>
 		</td>
@@ -61,23 +73,28 @@
 	</tr>
 	
 	<!-- Row: CSC150 -->
-	<tr id="csc150">
+	<tr id="csc150" name="course">
 	
 		<!-- Check Box -->
 		<td class="list check">
-			<input type="checkbox" value="check"
-				onchange="checkRow('csc150','rgba(0, 153, 204, .25)')">
+			<input type="checkbox" value="check" name="courseCheckBox"
+				onchange="checkRow('csc150','rgba(0, 153, 204, .25)');
+					setCreditsTotal('CSC_Freshman')">
 		</td>
 		
 		<!-- Course ID -->
-		<td class="list course">CSC150</td>
+		<td class="list course" name="courseID">
+			CSC150
+		</td>
 		
 		<!-- Credits -->
-		<td class="list credit">3</td>
+		<td class="list credit" name="courseCredits">
+			3
+		</td>
 		
 		<!-- Grade Dropdown -->
 		<td>
-			<select class="list dropdown">
+			<select class="list dropdown" name="courseGrade">
 				<option value="null"></option>
 				<option value="A">A</option>
 				<option value="B">B</option>
@@ -91,22 +108,27 @@
 	</tr>
 	
 	<!-- Row: CSC150L -->
-	<tr id="csc150L">
+	<tr id="csc150L" name="course">
 		<!-- Check Box -->
 		<td class="list check">
-			<input type="checkbox" value="check"
-				onchange="checkRow('csc150L','rgba(0, 153, 204, .25)')">
+			<input type="checkbox" value="check" name="courseCheckBox"
+				onchange="checkRow('csc150L','rgba(0, 153, 204, .25)');
+					setCreditsTotal('CSC_Freshman')">
 		</td>
 		
 		<!-- Course ID -->
-		<td class="list course">CSC150L</td>
+		<td class="list course" name="courseID">
+			CSC150L
+		</td>
 		
 		<!-- Credits -->
-		<td class="list credit">0</td>
+		<td class="list credit" name="courseCredits">
+			0
+		</td>
 		
 		<!-- Grade Dropdown -->
 		<td>
-			<select class="list dropdown">
+			<select class="list dropdown" name="courseGrade">
 				<option value="null"></option>
 				<option value="A">A</option>
 				<option value="B">B</option>

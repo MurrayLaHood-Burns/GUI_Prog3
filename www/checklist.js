@@ -34,10 +34,12 @@ function checkTable(tableID, color)
 			}
 		}
 	}
+	
+	setCreditsTotal(tableID);
 }
 
 /*****************************************************************************
-checkRowCSC
+checkRow
 ******************************************************************************/
 function checkRow(courseID, color)
 {
@@ -57,4 +59,57 @@ function checkRow(courseID, color)
 		course[2].style.backgroundColor = "white";
 		course[3].lastElementChild.style.backgroundColor = "white";
 	}
+}
+/*****************************************************************************
+setCreditsTotal
+******************************************************************************/
+function setCreditsTotal(tableID)
+{
+	var table = document.getElementById(tableID);
+	var numRows = table.rows.length;
+	var row;
+	var sumTotal = 0;
+	var sumChecked = 0;
+	var i;
+	
+	for(i=1; i<numRows;i++)
+	{
+		row = table.rows[i];
+		sumTotal += parseInt(row.children[2].innerText);
+		if(row.children[0].children[0].checked == true)
+			sumChecked += parseInt(row.children[2].innerText);
+	}
+	
+	row = table.rows[0];
+	row.children[2].innerText = sumChecked.toString() 
+		+ '/'
+		+ sumTotal.toString();
+}
+
+/*****************************************************************************
+updateCourseCredit
+******************************************************************************/
+function updateCourseCredit(table,course)
+{
+	if( course.children[0].checked == true )
+		table.rows[0].children[2]
+	
+}
+
+/*****************************************************************************
+setTableGPA
+******************************************************************************/
+function setTableGPA(tableID,courseID)
+{
+	
+	
+}
+
+/*****************************************************************************
+setCourseGrade
+******************************************************************************/
+function setCourseGrade(tableID,courseID)
+{
+	
+	
 }
