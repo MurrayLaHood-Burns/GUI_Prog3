@@ -23,8 +23,18 @@ function init()
 	var mainCheck = table.getElementsByClassName("mainCheck");
 	mainCheck[0].onchange= function()
 		{checkTable("cscFresh","rgba(0, 153, 204, .25)")};
-	var checkBoxes = table.getElementsByClassName("checkBox");
-	
+	var checkBoxes = table.getElementsByClassName("checkbox");
+	var i;
+	for( i = 0; i < checkBoxes.length; i++)
+	{
+		checkBoxes[i].onchange= function()
+			{
+				var rowID;
+				rowID = this.parentNode.parentNode.id;
+				checkRow(rowID,"rgba(0, 153, 204, .25)")
+			};
+		
+	}
 	
 	
 	updateTable(table);
