@@ -90,15 +90,15 @@ function checkRow(courseID, color)
 	if(course[0].lastElementChild.checked)
 	{
 		// check course
-		course[1].style.backgroundColor = color;
-		course[2].style.backgroundColor = color;
+		course[1].lastElementChild.style.backgroundColor = color;
+		course[2].lastElementChild.style.backgroundColor = color;
 		course[3].lastElementChild.style.backgroundColor = color;
 	}
 	else
 	{
 		// uncheck course
-		course[1].style.backgroundColor = "white";
-		course[2].style.backgroundColor = "white";
+		course[1].lastElementChild.style.backgroundColor = "white";
+		course[2].lastElementChild.style.backgroundColor = "white";
 		course[3].lastElementChild.style.backgroundColor = "white";
 	}
 }
@@ -135,7 +135,7 @@ function updateTable(table)
 	for(i=0; i<numRows; i++)
 	{
 		/* grab current course credits and grade */
-		courseCredits = parseInt(credits[i].innerText);
+		courseCredits = parseInt(credits[i].value);
 		courseGrade = grades[i].value;
 		
 		/* add credits to total possible */
@@ -165,7 +165,7 @@ function updateTable(table)
 	}
 	
 	/* set header credits */
-	creditTotal.innerText = sumCreditTaken.toString() 
+	creditTotal.value = sumCreditTaken.toString() 
 		+ '/'
 		+ sumCreditTotal.toString();
 		
@@ -175,9 +175,9 @@ function updateTable(table)
 	
 	/* set header gpa */
 	if(isNaN(GPA))
-		gradeTotal.innerText = " ";
+		gradeTotal.value = " ";
 	else
-		gradeTotal.innerText = GPA.toString();
+		gradeTotal.value = GPA.toString();
 	
 	/* set global */
 	setTableCreditsGPA(table.id, sumCreditGPA);
