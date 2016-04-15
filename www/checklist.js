@@ -26,16 +26,36 @@ function initTable(table, color)
 	mainCheck[0].onchange= function()
 		{checkTable(table,color)};
 	var checkBoxes = table.getElementsByClassName("checkbox");
+	var creditBoxes = table.getElementsByClassName("list course row");
+	var GPABoxes = table.getElementsByClassName("list dropdown row");
 	var i;
 	for( i = 0; i < checkBoxes.length; i++)
 	{
-		checkBoxes[i].onchange= function()
-			{
-				var row = this.parentNode.parentNode;
-				var currTable = this.parentNode.parentNode.parentNode.parentNode;
-				checkRow(row,currTable.dataset.color)
+		checkBoxes[i].onchange=function()
+		{
+			var row = this.parentNode.parentNode;
+			var currTable = this.parentNode.parentNode.parentNode.parentNode;
+			checkRow(row,currTable.dataset.color)
+			updateTable(currTable);
+		};
+			
+		creditBoxes[i].onchange=function()
+		{
+			var row = this.parentNode.parentNode;
+			var currTable = this.parentNode.parentNode.parentNode.parentNode;
+			var checkBox = row.getElementsByClassName("checkbox")[0];
+			if(checkBox.checked)
 				updateTable(currTable);
-			};
+		}
+		
+		GPABoxes[i].onchange=function()
+		{
+			var row = this.parentNode.parentNode;
+			var currTable = this.parentNode.parentNode.parentNode.parentNode;
+			var checkBox = row.getElementsByClassName("checkbox")[0];
+			if(checkBox.checked)
+				updateTable(currTable);
+		}
 		
 		updateTable(table);
 	}
@@ -115,7 +135,8 @@ function total_GPA()
 	var tables = document.getElementsByClassName("table");
 	var currGPA = 0;
 	var currCreditGPA = 0;
-	var currCreditTaken = 0;
+	var currCreditComplete = 0;
+	var currCreditInProgress = 0;
 	var sumQualityPoints = 0;
 	var sumCreditGPA = 0;
 	var sumInProgress = 0;
@@ -126,11 +147,12 @@ function total_GPA()
 	{
 		currGPA = parseFloat(tables[i].dataset.gpa);
 		currCreditGPA = parseInt(tables[i].dataset.credit_gpa);
-		currCreditTaken = parseInt(tables[i].dataset.credit_taken);
+		currCreditTaken = parseInt(tables[i].dataset.credit_complete);
+		currCreditInProgress = parseInt(tables[i].dataset.credit_inprogress);
 		
 		sumQualityPoints += currGPA * currCreditGPA;
 		sumCreditGPA += currCreditGPA;
-		sumInProgress += currCreditTaken - currCreditGPA;
+		sumInProgress += currCreditInProgress;
 	}
 	
 	if(sumCreditGPA == 0)
@@ -160,8 +182,8 @@ function updateTable(table)
 	
 	/* credit variables */
 	var courseCredits = 0;
-	var sumCreditTaken = 0;
-	var sumCreditUngraded = 0;
+	var sumCreditCompleted = 0;
+	var sumCreditInProgress = 0;
 	
 	/* gpa variables */
 	var courseGrade = 0;
@@ -182,12 +204,13 @@ function updateTable(table)
 		/* if current course is checked */
 		if( checkBoxes[i].checked )
 		{
-			/* add credits to taken */
-			sumCreditTaken += courseCredits;
 			
 			/* if course has grade */
 			if( !isNaN(courseGrade) )
 			{
+				/* add credits to taken */
+				sumCreditCompleted += courseCredits;
+			
 				/* add credits to GPA credits */
 				sumCreditGPA += courseCredits;
 				
@@ -195,15 +218,21 @@ function updateTable(table)
 				sumQualityPoints += courseCredits * courseGrade;
 			}
 			/* if course is ungraded */
-			else if( courseGrade = 'null' )
+			else if( courseGrade == 'null' )
 			{
-				sumCreditUngraded += courseCredits;
+				sumCreditInProgress += courseCredits;
+			}
+			/* if course is EX */
+			else if( courseGrade == 'EX' )
+			{
+				/* add credits to taken */
+				sumCreditCompleted += courseCredits;
 			}
 		}
 	}
 	
 	/* set header credits */
-	creditTotal.value = sumCreditTaken.toString() 
+	creditTotal.value = sumCreditCompleted.toString() 
 		+ '/'
 		+ table.dataset.credit_total;
 		
@@ -221,7 +250,8 @@ function updateTable(table)
 		gradeTotal.value = GPA.toString();
 	
 	/* set table data */
-	table.dataset.credit_taken = sumCreditTaken;
+	table.dataset.credit_complete = sumCreditCompleted;
+	table.dataset.credit_inprogress = sumCreditInProgress;
 	table.dataset.credit_gpa = sumCreditGPA;
 	table.dataset.gpa = GPA;
 	
