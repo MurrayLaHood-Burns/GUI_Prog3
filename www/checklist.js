@@ -20,8 +20,10 @@ initTable
 function initTable(table, color)
 {
 	var mainCheck = table.getElementsByClassName("mainCheck");
+	
 	mainCheck[0].onchange= function()
 		{checkTable(table,color)};
+		
 	var checkBoxes = table.getElementsByClassName("checkbox");
 	var creditBoxes = table.getElementsByClassName("list course row");
 	var GPABoxes = table.getElementsByClassName("list dropdown row");
@@ -148,8 +150,12 @@ function updateStats()
 		
 		sumQualityPoints += parseFloat(dataset.gpa) * parseInt(dataset.credit_gpa);
 		sumCredGPA += parseInt(dataset.credit_gpa);
-		sumCredComplete += parseInt(dataset.complete);
 		sumInProgress += parseInt(dataset.inprogress);
+		
+		if(parseInt(dataset.complete) > parseInt(dataset.total))
+			sumCredComplete += parseInt(dataset.total);
+		else
+			sumCredComplete += parseInt(dataset.complete);
 	}
 	
 	if(sumCredGPA == 0)

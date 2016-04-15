@@ -20,7 +20,7 @@ Table Container
 .table_container
 {
 	width:300px;
-	height:200px;
+	height:225px;
 	margin:0;
 	display:inline-block;
 }
@@ -104,8 +104,9 @@ Links
 ******************************************************************************/
 .link
 {
+	margin-top:20px;
+	margin-left:65px;
 	border:none;
-	margin:4px 2 px;
 	color:white;
 	width:150px;
 	text-align:center;
@@ -117,7 +118,6 @@ Hover
 ******************************************************************************/
 a:hover
 {
-	border:1px solid black;
 }
 
 /*****************************************************************************
