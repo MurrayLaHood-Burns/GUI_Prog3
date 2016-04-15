@@ -1,7 +1,4 @@
 /********************************** globals **********************************/
-var totalGPA = 0;
-var totalCreditsGPA = 0;
-var totalCreditsTaken = 0;
 var totalCreditsPossible = 120;
 
 /*****************************************************************************
@@ -127,41 +124,42 @@ function checkRow(course, color)
 /*****************************************************************************
 totalGPA
 ******************************************************************************/
-function total_GPA()
+function updateStats()
 {
+	var progress = document.getElementById("progress");
 	var gpa = document.getElementById("cumulative_gpa");
 	var completedCredits = document.getElementById("completed_credits");
 	var inProgress = document.getElementById("in_progress");
+	
 	var tables = document.getElementsByClassName("table");
-	var currGPA = 0;
-	var currCreditGPA = 0;
-	var currCreditComplete = 0;
-	var currCreditInProgress = 0;
-	var sumQualityPoints = 0;
-	var sumCreditGPA = 0;
-	var sumInProgress = 0;
+	var dataset;
+	
 	var cumulativeGPA = 0;
+	var sumQualityPoints = 0;
+	var sumCredGPA = 0;
+	var sumCredComplete = 0;
+	var sumInProgress = 0;
+	
 	var i;
 	
 	for(i=0; i<tables.length; i++)
 	{
-		currGPA = parseFloat(tables[i].dataset.gpa);
-		currCreditGPA = parseInt(tables[i].dataset.credit_gpa);
-		currCreditTaken = parseInt(tables[i].dataset.credit_complete);
-		currCreditInProgress = parseInt(tables[i].dataset.credit_inprogress);
+		dataset = tables[i].dataset;
 		
-		sumQualityPoints += currGPA * currCreditGPA;
-		sumCreditGPA += currCreditGPA;
-		sumInProgress += currCreditInProgress;
+		sumQualityPoints += parseFloat(dataset.gpa) * parseInt(dataset.credit_gpa);
+		sumCredGPA += parseInt(dataset.credit_gpa);
+		sumCredComplete += parseInt(dataset.complete);
+		sumInProgress += parseInt(dataset.inprogress);
 	}
 	
-	if(sumCreditGPA == 0)
+	if(sumCredGPA == 0)
 		cumulativeGPA = 0;
 	else
-		cumulativeGPA = sumQualityPoints/sumCreditGPA;
+		cumulativeGPA = sumQualityPoints/sumCredGPA;
 	
-	gpa.value= cumulativeGPA.toFixed(2);
-	completedCredits.value = sumCreditGPA;
+	progress.value = (sumCredComplete/totalCreditsPossible * 100).toFixed(2);
+	gpa.value = cumulativeGPA.toFixed(2);
+	completedCredits.value = sumCredComplete;
 	inProgress.value = sumInProgress;
 }
 
@@ -234,7 +232,7 @@ function updateTable(table)
 	/* set header credits */
 	creditTotal.value = sumCreditCompleted.toString() 
 		+ '/'
-		+ table.dataset.credit_total;
+		+ table.dataset.total;
 		
 	/* calculate table gpa */
 	if( sumCreditGPA == 0 )
@@ -250,12 +248,12 @@ function updateTable(table)
 		gradeTotal.value = GPA.toString();
 	
 	/* set table data */
-	table.dataset.credit_complete = sumCreditCompleted;
-	table.dataset.credit_inprogress = sumCreditInProgress;
+	table.dataset.complete = sumCreditCompleted;
+	table.dataset.inprogress = sumCreditInProgress;
 	table.dataset.credit_gpa = sumCreditGPA;
 	table.dataset.gpa = GPA;
 	
-	total_GPA();
+	updateStats();
 }
 
 

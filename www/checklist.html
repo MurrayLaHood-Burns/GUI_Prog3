@@ -11,8 +11,7 @@
 CSC Freshman 
 ****************************************************************************-->
 <table class="table" id="cscFresh" data-color="rgba(0, 153, 204, .25)"
-	data-credit_total=12 data-credit_complete=0 data-credit_inprogress=0
-	data-credit_gpa=0 data-gpa=0>
+	data-total=12 data-complete=0 data-inprogress=0 data-credit_gpa=0 data-gpa=0>
 
 	<!-- Row: Header -->
 	<tr id="cscFreshHead" name="tableHeader">
@@ -148,8 +147,7 @@ CSC Freshman
 CSC Sophomore 
 ****************************************************************************-->
 <table class="table" id="cscSoph" data-color="rgba(0, 153, 204, .25)"
-	data-credit_total=7 data-credit_complete=0 data-credit_inprogress=0
-	data-credit_gpa=0 data-gpa=0>
+	data-total=7 data-complete=0 data-inprogress=0 data-credit_gpa=0 data-gpa=0>
 
 	<!-- Row: Header -->
 	<tr id="cscSophHead" name="tableHeader">
@@ -278,6 +276,9 @@ CSC Sophomore
 <!-- GPA Calculations -->
 <br/>
 <div>
+	Progress:
+	<input id="progress" type="number" value=0 readonly=true></input>
+	<br/>
 	Cumulative GPA:
 	<input id="cumulative_gpa" type="number" value=0 readonly=true></input>
 	<br/>
