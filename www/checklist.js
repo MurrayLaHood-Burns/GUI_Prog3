@@ -4,48 +4,49 @@ var totalCreditsGPA = 0;
 var totalCreditsTaken = 0;
 var totalCreditsPossible = 120;
 
-var cscFreshCreditsGPA = 0;
-var cscSophCreditsGPA = 0;
-var cscJunCreditsGPA = 0;
-var cscSenCreditsGPA = 0;
-var mathCreditsGPA = 0;
-var sciCreditsGPA = 0;
-var genCreditsGPA = 0;
-var englCreditsGPA = 0;
-var freeCreditsGPA = 0;
-
 /*****************************************************************************
 init
 ******************************************************************************/
 function init()
 {
-	var table = document.getElementById("cscFresh");
+	var tables = document.getElementsByClassName("table");
+	var i;
+	for(i = 0; i< tables.length; i++)
+	{
+		initTable(tables[i],tables[i].dataset.color)
+	}
+}
+
+/*****************************************************************************
+initTable
+******************************************************************************/
+function initTable(table, color)
+{
 	var mainCheck = table.getElementsByClassName("mainCheck");
 	mainCheck[0].onchange= function()
-		{checkTable("cscFresh","rgba(0, 153, 204, .25)")};
+		{checkTable(table,color)};
 	var checkBoxes = table.getElementsByClassName("checkbox");
 	var i;
 	for( i = 0; i < checkBoxes.length; i++)
 	{
 		checkBoxes[i].onchange= function()
 			{
-				var rowID;
-				rowID = this.parentNode.parentNode.id;
-				checkRow(rowID,"rgba(0, 153, 204, .25)")
+				var row = this.parentNode.parentNode;
+				var currTable = this.parentNode.parentNode.parentNode.parentNode;
+				checkRow(row,currTable.dataset.color)
+				updateTable(currTable);
 			};
 		
+		updateTable(table);
 	}
 	
-	
-	updateTable(table);
 }
 
 /*****************************************************************************
 checkTable
 ******************************************************************************/
-function checkTable(tableID, color)
+function checkTable(table, color)
 {
-	var table = document.getElementById(tableID);
 	var numRows = table.rows.length;
 	var row = table.rows[0];
 	var i;
@@ -59,7 +60,7 @@ function checkTable(tableID, color)
 			if(row.children[0].children[0].checked == false )
 			{
 				row.children[0].children[0].checked = true;
-				checkRow(row.id,color);
+				checkRow(row,color);
 			}
 		}
 	}
@@ -72,7 +73,7 @@ function checkTable(tableID, color)
 			if(row.children[0].children[0].checked == true )
 			{
 				row.children[0].children[0].checked = false;
-				checkRow(row.id,color);
+				checkRow(row,color);
 			}
 		}
 	}
@@ -83,9 +84,9 @@ function checkTable(tableID, color)
 /*****************************************************************************
 checkRow
 ******************************************************************************/
-function checkRow(courseID, color)
+function checkRow(course, color)
 {
-	var course = document.getElementById(courseID).cells;
+	course = course.children;
 	
 	if(course[0].lastElementChild.checked)
 	{
@@ -102,11 +103,52 @@ function checkRow(courseID, color)
 		course[3].lastElementChild.style.backgroundColor = "white";
 	}
 }
+
+/*****************************************************************************
+totalGPA
+******************************************************************************/
+function total_GPA()
+{
+	var gpa = document.getElementById("cumulative_gpa");
+	var completedCredits = document.getElementById("completed_credits");
+	var inProgress = document.getElementById("in_progress");
+	var tables = document.getElementsByClassName("table");
+	var currGPA = 0;
+	var currCreditGPA = 0;
+	var currCreditTaken = 0;
+	var sumQualityPoints = 0;
+	var sumCreditGPA = 0;
+	var sumInProgress = 0;
+	var cumulativeGPA = 0;
+	var i;
+	
+	for(i=0; i<tables.length; i++)
+	{
+		currGPA = parseFloat(tables[i].dataset.gpa);
+		currCreditGPA = parseInt(tables[i].dataset.credit_gpa);
+		currCreditTaken = parseInt(tables[i].dataset.credit_taken);
+		
+		sumQualityPoints += currGPA * currCreditGPA;
+		sumCreditGPA += currCreditGPA;
+		sumInProgress += currCreditTaken - currCreditGPA;
+	}
+	
+	if(sumCreditGPA == 0)
+		cumulativeGPA = 0;
+	else
+		cumulativeGPA = sumQualityPoints/sumCreditGPA;
+	
+	gpa.value= cumulativeGPA.toFixed(2);
+	completedCredits.value = sumCreditGPA;
+	inProgress.value = sumInProgress;
+}
+
 /*****************************************************************************
 updateTable
 ******************************************************************************/
 function updateTable(table)
 {
+	
 	/* table header */
 	var creditTotal = table.getElementsByClassName("credit total")[0];
 	var gradeTotal = table.getElementsByClassName("grade total")[0];
@@ -118,7 +160,6 @@ function updateTable(table)
 	
 	/* credit variables */
 	var courseCredits = 0;
-	var sumCreditTotal = 0;
 	var sumCreditTaken = 0;
 	var sumCreditUngraded = 0;
 	
@@ -137,9 +178,6 @@ function updateTable(table)
 		/* grab current course credits and grade */
 		courseCredits = parseInt(credits[i].value);
 		courseGrade = grades[i].value;
-		
-		/* add credits to total possible */
-		sumCreditTotal += courseCredits
 		
 		/* if current course is checked */
 		if( checkBoxes[i].checked )
@@ -167,33 +205,27 @@ function updateTable(table)
 	/* set header credits */
 	creditTotal.value = sumCreditTaken.toString() 
 		+ '/'
-		+ sumCreditTotal.toString();
+		+ table.dataset.credit_total;
 		
 	/* calculate table gpa */
-	GPA = sumQualityPoints / sumCreditGPA;
+	if( sumCreditGPA == 0 )
+		GPA = 0;
+	else
+		GPA = sumQualityPoints / sumCreditGPA;
 	GPA = GPA.toFixed(2);
 	
 	/* set header gpa */
 	if(isNaN(GPA))
-		gradeTotal.value = " ";
+		gradeTotal.value = 0;
 	else
 		gradeTotal.value = GPA.toString();
 	
-	/* set global */
-	setTableCreditsGPA(table.id, sumCreditGPA);
+	/* set table data */
+	table.dataset.credit_taken = sumCreditTaken;
+	table.dataset.credit_gpa = sumCreditGPA;
+	table.dataset.gpa = GPA;
+	
+	total_GPA();
 }
 
-
-/*****************************************************************************
-setTableCreditsGPA
-******************************************************************************/
-function setTableCreditsGPA( tableID, creditGPA )
-{
-	switch(tableID)
-	{
-		case "cscFresh":
-			cscFreshCreditsGPA = creditGPA;
-			break;
-	}
-}
 
