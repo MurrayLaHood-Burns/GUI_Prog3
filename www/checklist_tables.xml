@@ -1,0 +1,66 @@
+<?xml version = "1.0" encoding "utf-8" ?>
+<CATALOG>
+
+	<TABLE>
+	
+		<ID>cscFresh</ID>
+		<COLOR1>rgb(0, 153, 204)</COLOR1>
+		<COLOR2>rgba(0, 153, 204, .25)</COLOR2>
+		<CREDTOTAL>12</CREDTOTAL>
+		<TITLE>CSC Freshman:</TITLE>
+		
+		<COURSE>
+			<ID>csc110</ID>
+			<NAME>CSC 110</NAME>
+			<CREDITS>1</CREDITS>
+			<READONLY>true</READONLY>
+			<MIN></MIN>
+			<MAX></MAX>
+		</COURSE>
+		
+		.
+		.
+		.
+		
+		<LINK>false</LINK>
+		<HREF></HREF>
+		<TEXT></TEXT>
+		
+	</TABLE>
+	
+	.
+	.
+	.
+	
+	<TABLE>
+	
+		<ID>cscFresh</ID>
+		<COLOR1>rgb(0, 153, 204)</COLOR1>
+		<COLOR2>rgba(0, 153, 204, .25)</COLOR2>
+		<CREDTOTAL>12</CREDTOTAL>
+		<TITLE>CSC Electives:</TITLE>
+		
+		<COURSE>
+			<ID>csce1</ID>
+			<NAME>CSC Elective</NAME>
+			<CREDITS>3</CREDITS>
+			<READONLY>false</READONLY>
+			<MIN>3</MIN>
+			<MAX>4</MAX>
+		</COURSE>
+		
+		.
+		.
+		.
+		
+		<LINK>true</LINK>
+		<HREF>csc_list.html</HREF>
+		<TEXT>List of CSC Electives</TEXT>
+		
+	</TABLE>
+	
+	.
+	.
+	.
+	
+</CATALOG>
