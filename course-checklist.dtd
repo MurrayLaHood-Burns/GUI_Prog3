@@ -3,109 +3,312 @@
 <!-- courseList.dtd - a document type for a students check list that references
 courseList.xml and subsequently math.xml and csc.xml -->
 
-<!ELEMENT checkList (cscFresh, cscSoph, cscJunior, cscSenior, cscElective, math, mathElective, science, libArts, english, free)>
-<!ELEMENT cscFresh (course+)>
-<!ELEMENT cscSoph (course+)>
-<!ELEMENT cscJunior (course+)>
-<!ELEMENT cscSenior(course+)>
-<!ELEMENT cscElective (course+)>
-<!ELEMENT math (course+)>
-<!ELEMENT mathElective (course+)>
-<!ELEMENT science (course+)>
-<!ELEMENT libArts (course+)>
+<!ELEMENT checklist (cscFresh, cscSoph, cscJunior, cscSenior, csc_elective, math, math_elective, science, libArts, english, free)>
+<!ELEMENT standing (course+)>
+<!ELEMENT csc_elective (course+)>
+<!ELEMENT math_elective (course+)>
+<!ELEMENT science_requirment (course+)>
+<!ELEMENT libarts (course+)>
 <!ELEMENT english (course+)>
 <!ELEMENT free (course+)>
-<!ELEMENT course (title, grade?, credits)>
+<!ELEMENT course (title, grade, credits)>
 <!ELEMENT title (#PCDATA)>
 <!ELEMENT grade (#PCDATA)>
 <!ELEMENT credits (#PCDATA)>
 
 
 <!ATTLIST isComplete course #REQUIRED>
-<!-- attribute will be used like this: <course isComplete="yes"> </course> --> 
+<!-- attribute will be used like this: <course isComplete="no"> </course> --> 
 
-<!-- XML mockup based on above DTD
-<checkList>	
-	<cscFresh>
-		<course isComplete="yes">
-			<title></title>
-			<grade></grade>
-			<credits></credits></course>
 
-		<course isComplete="yes">
-			<title></title>
-			<grade></grade>
-			<credits></credits></course>
+<checklist>	
+	
+	<standing>
+	
+		<id>fresh</id>
+		<color1>rgb(0, 153, 204)</color1>
+		<color2>rgba(0, 153, 204, .25)</color>
+		<title>Freshman</title>
 
-		<course isComplete="yes">
-			<title></title>
+		<course isComplete="no">
+			<title>CSC 110 - Survey of Computer Science</title>
 			<grade></grade>
-			<credits></credits></course>
+			<credits>1</credits>
+		</course>
 
-		<course isComplete="yes">
-			<title></title>
+		<course isComplete="no">
+			<title>CSC 150 - Computer Science 1</title>
 			<grade></grade>
-			<credits></credits></course>
+			<credits>3</credits>
+		</course>
 
-		<course isComplete="yes">
-			<title></title>
+		<course isComplete="no">
+			<title>CSC 250 - Computer Science 2</title>
 			<grade></grade>
-			<credits></credits></course>
-	</cscFresh>
+			<credits>4</credits>
+		</course>
 
-	<cscSoph>
-		<course isComplete="yes">
-			<title></title>
+		<course isComplete="no">
+			<title>CSC 251 - Finite Structures</title>
 			<grade></grade>
-			<credits></credits></course>
-	</cscSoph>
-	<cscJunior>
-		<course isComplete="yes">
-			<title></title>
+			<credits>4</credits>
+		</course>
+
+		<course isComplete="no">
+			<title>Math 123 - Calculus 1</title>
 			<grade></grade>
-			<credits></credits></course>
-	</junior>
-	<cscSenior>
-		<course isComplete="yes">
-			<title></title>
+			<credits>4</credits>
+		</course>
+		
+		<course isComplete="no">
+			<title>Math 125 - Calculus 2</title>
 			<grade></grade>
-			<credits></credits></course>
-	</cscSenior>
-	<cscElective>
-		<course isComplete="yes">
-			<title></title>
+			<credits>4</credits>
+		</course>
+		
+		<course isComplete="no">
+			<title>ENGL 101 - Composition I</title>
 			<grade></grade>
-			<credits></credits></course>
-	</cscElective>
-	<math>
-		<course isComplete="yes">
-			<title></title>
+			<credits>3</credits>
+		</course>
+			
+	</standing>
+
+	<standing>
+    
+        <id>soph</id>
+		<color1>rgb(0, 153, 204)</color1>
+		<color2>rgba(0, 153, 204, .25)</color>
+		<title>Sophmore</title>
+		
+		<course isComplete="no">
+			<title>CSC 300 - Data Structures</title>
 			<grade></grade>
-			<credits></credits></course>
-	</math>
-	<science>
-		<course isComplete="yes">
-			<title></title>
+			<credits>4</credits>
+		</course>
+		
+		<course isComplete="no">
+			<title>CSC 314 - Assembly Language</title>
 			<grade></grade>
-			<credits></credits></course>
-	</science>
-	<libArts>
-		<course isComplete="yes">
-			<title></title>
+			<credits>3</credits>
+		</course>
+		
+		<course isComplete="no">
+			<title>MATH 225 - Calculus 3</title>
 			<grade></grade>
-			<credits></credits></course>
-	</libArts>
-	<english>
-		<course isComplete="yes">
-			<title></title>+
+			<credits>4</credits>
+		</course>
+		
+		<course isComplete="no">
+			<title>MATH 315 - Linear Algebra</title>
 			<grade></grade>
-			<credits></credits></course>
-	</english>
+			<credits>3</credits>
+		</course>
+		
+		<course isComplete="no">
+			<title>ENGL 279 - Technical Communication 1</title>
+			<grade></grade>
+			<credits>3</credits>
+		</course>			
+
+	</standing>
+    
+        <id>junior</id>
+		<color1>rgb(0, 153, 204)</color1>
+		<color2>rgba(0, 153, 204, .25)</color>
+		<title>Junior</title>
+		
+		<course isComplete="no">
+			<title>CSC 317 - Computer Org & Arch</title>
+			<grade></grade>
+			<credits>3</credits>
+		</course>
+		
+		<course isComplete="no">
+			<title>CSC 372 - Analysis of Algorithms</title>
+			<grade></grade>
+			<credits>3</credits>
+		</course>
+		
+		<course isComplete="no">
+			<title>CSC 461 - Programming Languages</title>
+			<grade></grade>
+			<credits>3</credits>
+		</course>
+		
+		<course isComplete="no">
+			<title>CSC 484 - Database Management</title>
+			<grade></grade>
+			<credits>3</credits>
+		</course>
+		
+		<course isComplete="no">
+			<title>CSC 470 - Software Engineering</title>
+			<grade></grade>
+			<credits>3</credits>
+		</course>
+		
+		<course isComplete="no">
+			<title>ENGL 289 - Technical Communcation 2</title>
+			<grade></grade>
+			<credits>3</credits>
+		</course>
+		
+		<course isComplete="no">
+			<title>PHYS 211 - University Physics 1</title>
+			<grade></grade>
+			<credits>3</credits>
+		</course>
+			
+	</standing>
+	<standing>
+    
+        <id>senior</id>
+		<color1>rgb(0, 153, 204)</color1>
+		<color2>rgba(0, 153, 204, .25)</color>
+		<title>Senior</title>
+	
+		<course isComplete="no">
+			<title>CSC 421 - Graphical User Interface </title>
+			<grade></grade>
+			<credits>3</credits>
+		</course>
+		
+		<course isComplete="no">
+			<title>CSC 465 - Senior Design I</title>
+			<grade></grade>
+			<credits>2</credits>
+		</course>
+		
+		<course isComplete="no">
+			<title>CSC 467 - Senior Design II</title>
+			<grade></grade>
+			<credits>2</credits>
+		</course>
+		
+		<course isComplete="no">
+			<title>CSC 456 - Operating Systems</title>
+			<grade></grade>
+			<credits>4</credits>
+		</course>
+		
+		<course isComplete="no">
+			<title>MATH 381 - Intro. to Probability & Stats. </title>
+			<grade></grade>
+			<credits>3</credits>
+		</course>
+		
+	</standing>
+	<csc_elective>
+	
+		<course isComplete="no">
+			<title>Upper Level CSC _elective</title>
+			<grade></grade>
+			<credits></credits>
+		</course>
+		
+		<course isComplete="no">
+			<title>Upper Level CSC _elective</title>
+			<grade></grade>
+			<credits></credits>
+		</course>
+		
+		<course isComplete="no">
+			<title>Upper Level CSC _elective</title>
+			<grade></grade>
+			<credits></credits>
+		</course>
+		
+		<course isComplete="no">
+			<title>Upper Level CSC _elective</title>
+			<grade></grade>
+			<credits></credits>
+		</course>
+		
+	</csc_elective>
+	<math_elective>
+	
+		<course isComplete="no">
+			<title>MATH _elective</title>
+			<grade></grade>
+			<credits></credits>
+		</course>
+		
+	</math_elective>
+	<science_requirement>
+		<course isComplete="no">
+			<title>Science Requirement</title>
+			<grade></grade>
+			<credits></credits>
+        </course>
+        
+        <course isComplete="no">
+			<title>Science Requirement</title>
+			<grade></grade>
+			<credits></credits>
+        </course>
+        
+        <course isComplete="no">
+			<title>Science Lab</title>
+			<grade></grade>
+			<credits></credits>
+        </course>
+        
+        <course isComplete="no">
+			<title>Science Lab</title>
+			<grade></grade>
+			<credits></credits>
+        </course>
+        
+        <course isComplete="no">
+			<title>Science _requirement</title>
+			<grade></grade>
+			<credits></credits>
+        </course>
+            
+	</science_requirement>
+	<libarts>
+    
+		<course isComplete="no">
+			<title>Social Sciences</title>
+			<grade></grade>
+			<credits></credits>
+        </course>
+        
+        <course isComplete="no">
+			<title>Social Sciences</title>
+			<grade></grade>
+			<credits></credits>
+        </course>
+        
+        <course isComplete="no">
+			<title>Arts & Humanities</title>
+			<grade></grade>
+			<credits></credits>
+        </course>
+        
+        course isComplete="no">
+			<title>Arts & Humanities</title>
+			<grade></grade>
+			<credits></credits>
+        </course>
+        
+        course isComplete="no">
+			<title>Arts & Humanities/Social Sciences</title>
+			<grade></grade>
+			<credits></credits>
+        </course>
+        
+	<libarts>
+	
 	<free>
-		<course isComplete="yes">
+		<course isComplete="no">
 			<title></title>+
 			<grade></grade>
-			<credits></credits></course>
+			<credits>7</credits>
+        </course>             
+        
 	</free>
+    
 </checklist>
 -->
