@@ -37,7 +37,7 @@ courseList.xml and subsequently math.xml and csc.xml -->
 		<color2>rgba(0, 153, 204, .25)</color>
 		<title>Freshman</title>
 
-		<course id ="csc110"isComplete="no">
+		<course id ="csc110" isComplete="no">
 			<title>CSC 110 - Survey of Computer Science</title>
 			<grade></grade>
 			<credits>1</credits>
