@@ -11,7 +11,7 @@ courseList.xml and subsequently math.xml and csc.xml -->
 <!ELEMENT libarts (course+)>
 <!ELEMENT english (course+)>
 <!ELEMENT free (course+)>
-<!ELEMENT course (title, grade, credits)>
+<!ELEMENT course (id, title, grade, credits)>
 <!ELEMENT title (#PCDATA)>
 <!ELEMENT grade (#PCDATA)>
 <!ELEMENT credits (#PCDATA)>
@@ -31,42 +31,49 @@ courseList.xml and subsequently math.xml and csc.xml -->
 		<title>Freshman</title>
 
 		<course isComplete="no">
+            <id>csc110</id>
 			<title>CSC 110 - Survey of Computer Science</title>
 			<grade></grade>
 			<credits>1</credits>
 		</course>
 
 		<course isComplete="no">
+            <id>csc150</id>
 			<title>CSC 150 - Computer Science 1</title>
 			<grade></grade>
 			<credits>3</credits>
 		</course>
 
 		<course isComplete="no">
+            <id>csc250</id>
 			<title>CSC 250 - Computer Science 2</title>
 			<grade></grade>
 			<credits>4</credits>
 		</course>
 
 		<course isComplete="no">
+            <id>csc251</id>
 			<title>CSC 251 - Finite Structures</title>
 			<grade></grade>
 			<credits>4</credits>
 		</course>
 
 		<course isComplete="no">
+            <id>math123</id>
 			<title>Math 123 - Calculus 1</title>
 			<grade></grade>
 			<credits>4</credits>
 		</course>
 		
 		<course isComplete="no">
+            <id>math125</id>
 			<title>Math 125 - Calculus 2</title>
 			<grade></grade>
 			<credits>4</credits>
 		</course>
 		
 		<course isComplete="no">
+            <id>engl01</id>
 			<title>ENGL 101 - Composition I</title>
 			<grade></grade>
 			<credits>3</credits>
@@ -82,30 +89,35 @@ courseList.xml and subsequently math.xml and csc.xml -->
 		<title>Sophmore</title>
 		
 		<course isComplete="no">
+            <id>csc300</id>
 			<title>CSC 300 - Data Structures</title>
 			<grade></grade>
 			<credits>4</credits>
 		</course>
 		
 		<course isComplete="no">
+            <id>csc314</id>
 			<title>CSC 314 - Assembly Language</title>
 			<grade></grade>
 			<credits>3</credits>
 		</course>
 		
 		<course isComplete="no">
+            <id>math225</id>
 			<title>MATH 225 - Calculus 3</title>
 			<grade></grade>
 			<credits>4</credits>
 		</course>
 		
 		<course isComplete="no">
+            <id>math315</id>
 			<title>MATH 315 - Linear Algebra</title>
 			<grade></grade>
 			<credits>3</credits>
 		</course>
 		
 		<course isComplete="no">
+            <id>engl279</id>
 			<title>ENGL 279 - Technical Communication 1</title>
 			<grade></grade>
 			<credits>3</credits>
@@ -119,42 +131,49 @@ courseList.xml and subsequently math.xml and csc.xml -->
 		<title>Junior</title>
 		
 		<course isComplete="no">
+            <id>csc317</id>
 			<title>CSC 317 - Computer Org & Arch</title>
 			<grade></grade>
 			<credits>3</credits>
 		</course>
 		
 		<course isComplete="no">
+            <id>csc372</id>
 			<title>CSC 372 - Analysis of Algorithms</title>
 			<grade></grade>
 			<credits>3</credits>
 		</course>
 		
 		<course isComplete="no">
+            <id>csc461</id>
 			<title>CSC 461 - Programming Languages</title>
 			<grade></grade>
 			<credits>3</credits>
 		</course>
 		
 		<course isComplete="no">
+            <id>csc484</id>
 			<title>CSC 484 - Database Management</title>
 			<grade></grade>
 			<credits>3</credits>
 		</course>
 		
 		<course isComplete="no">
+            <id>csc470</id>
 			<title>CSC 470 - Software Engineering</title>
 			<grade></grade>
 			<credits>3</credits>
 		</course>
 		
 		<course isComplete="no">
+            <id>engl289</id>
 			<title>ENGL 289 - Technical Communcation 2</title>
 			<grade></grade>
 			<credits>3</credits>
 		</course>
 		
 		<course isComplete="no">
+            <id>phys211</id>
 			<title>PHYS 211 - University Physics 1</title>
 			<grade></grade>
 			<credits>3</credits>
@@ -169,30 +188,35 @@ courseList.xml and subsequently math.xml and csc.xml -->
 		<title>Senior</title>
 	
 		<course isComplete="no">
+            <id>csc421</id>
 			<title>CSC 421 - Graphical User Interface </title>
 			<grade></grade>
 			<credits>3</credits>
 		</course>
 		
 		<course isComplete="no">
+            <id>csc465</id>
 			<title>CSC 465 - Senior Design I</title>
 			<grade></grade>
 			<credits>2</credits>
 		</course>
 		
 		<course isComplete="no">
+            <id>csc467</id>
 			<title>CSC 467 - Senior Design II</title>
 			<grade></grade>
 			<credits>2</credits>
 		</course>
 		
 		<course isComplete="no">
+            <id>csc456</id>
 			<title>CSC 456 - Operating Systems</title>
 			<grade></grade>
 			<credits>4</credits>
 		</course>
 		
 		<course isComplete="no">
+            <id>math381</id>
 			<title>MATH 381 - Intro. to Probability & Stats. </title>
 			<grade></grade>
 			<credits>3</credits>
@@ -202,24 +226,28 @@ courseList.xml and subsequently math.xml and csc.xml -->
 	<csc_elective>
 	
 		<course isComplete="no">
+            <id>upperlevcsc</id>
 			<title>Upper Level CSC _elective</title>
 			<grade></grade>
 			<credits></credits>
 		</course>
 		
 		<course isComplete="no">
+            <id>upperlevcsc</id>
 			<title>Upper Level CSC _elective</title>
 			<grade></grade>
 			<credits></credits>
 		</course>
 		
 		<course isComplete="no">
+            <id>upperlevcsc</id>
 			<title>Upper Level CSC _elective</title>
 			<grade></grade>
 			<credits></credits>
 		</course>
 		
 		<course isComplete="no">
+            <id>upperlevcsc</id>
 			<title>Upper Level CSC _elective</title>
 			<grade></grade>
 			<credits></credits>
@@ -229,6 +257,7 @@ courseList.xml and subsequently math.xml and csc.xml -->
 	<math_elective>
 	
 		<course isComplete="no">
+            <id>mathelect</id>
 			<title>MATH _elective</title>
 			<grade></grade>
 			<credits></credits>
@@ -237,30 +266,35 @@ courseList.xml and subsequently math.xml and csc.xml -->
 	</math_elective>
 	<science_requirement>
 		<course isComplete="no">
+            <id>scireq</id>
 			<title>Science Requirement</title>
 			<grade></grade>
 			<credits></credits>
         </course>
         
         <course isComplete="no">
+            <id>scireq</id>
 			<title>Science Requirement</title>
 			<grade></grade>
 			<credits></credits>
         </course>
         
         <course isComplete="no">
+            <id>scilab</id>
 			<title>Science Lab</title>
 			<grade></grade>
 			<credits></credits>
         </course>
         
         <course isComplete="no">
+            <id>scilab</id>
 			<title>Science Lab</title>
 			<grade></grade>
 			<credits></credits>
         </course>
         
         <course isComplete="no">
+            <id>scireq</id>
 			<title>Science _requirement</title>
 			<grade></grade>
 			<credits></credits>
@@ -270,30 +304,35 @@ courseList.xml and subsequently math.xml and csc.xml -->
 	<libarts>
     
 		<course isComplete="no">
+            <id>socsci</id>
 			<title>Social Sciences</title>
 			<grade></grade>
 			<credits></credits>
         </course>
         
         <course isComplete="no">
+            <id>socsci</id>
 			<title>Social Sciences</title>
 			<grade></grade>
 			<credits></credits>
         </course>
         
         <course isComplete="no">
+            <id>arthum</id>
 			<title>Arts & Humanities</title>
 			<grade></grade>
 			<credits></credits>
         </course>
         
         course isComplete="no">
+            <id>arthum</id>
 			<title>Arts & Humanities</title>
 			<grade></grade>
 			<credits></credits>
         </course>
         
         course isComplete="no">
+            <id>arthum</id>
 			<title>Arts & Humanities/Social Sciences</title>
 			<grade></grade>
 			<credits></credits>
@@ -303,6 +342,7 @@ courseList.xml and subsequently math.xml and csc.xml -->
 	
 	<free>
 		<course isComplete="no">
+            <id>free</id>
 			<title></title>+
 			<grade></grade>
 			<credits>7</credits>
