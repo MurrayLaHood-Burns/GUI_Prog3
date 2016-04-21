@@ -124,7 +124,7 @@ function checkRow(course, color)
 }
 
 /*****************************************************************************
-totalGPA
+updateStats
 ******************************************************************************/
 function updateStats()
 {
@@ -141,6 +141,8 @@ function updateStats()
 	var sumCredGPA = 0;
 	var sumCredComplete = 0;
 	var sumInProgress = 0;
+	var percentComplete = 0;
+	var percentInProgress = 0;
 	
 	var i;
 	
@@ -163,10 +165,34 @@ function updateStats()
 	else
 		cumulativeGPA = sumQualityPoints/sumCredGPA;
 	
-	progress.value = (sumCredComplete/totalCreditsPossible * 100).toFixed(2);
+	percentComplete = sumCredComplete/totalCreditsPossible * 100;
+	percentInProgress = sumInProgress/totalCreditsPossible * 100;
+	
+	progress.value = Math.round(percentComplete);
 	gpa.value = cumulativeGPA.toFixed(2);
 	completedCredits.value = sumCredComplete;
 	inProgress.value = sumInProgress;
+	
+	updateProgress(percentComplete,percentInProgress);
+}
+
+/*****************************************************************************
+updateProgress
+******************************************************************************/
+function updateProgress(percentComplete, percentInProgress)
+{
+	var barComplete = document.getElementById("bar_complete");
+	var barInProgress = document.getElementById("bar_inprogress");
+	
+	var completeWidth = percentComplete * .7;
+	var inProgressWidth = percentInProgress *.7;
+	
+	completeWidth = completeWidth.toString();
+	inProgressWidth = inProgressWidth.toString();
+	
+	barComplete.setAttribute("style","width:"+completeWidth+"%;");
+	barInProgress.setAttribute("style","width:"+inProgressWidth+"%;");
+	
 }
 
 /*****************************************************************************
@@ -261,5 +287,3 @@ function updateTable(table)
 	
 	updateStats();
 }
-
-
