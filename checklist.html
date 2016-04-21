@@ -8,16 +8,24 @@
 	onload="init()">
 	
 <!--pipin' that php-->
-	<form action="checklist.php" method="post"> 
+	<form action="checklist.php" method="post"> </form>
 <!--/pipin' that php-->
+
+<div class="title">
+	Graduation:
+    <select  name="graduationDate" tabindex="1">
+        <option value="test">test</option>
+        <option value="2017">2017</option>
+    </select>
+</div>
 
 <!--***************************************************************************
 CSC Freshman 
 ****************************************************************************-->
-<div class="table_container">
+<div class="table_container" data-total="120">
 
 <table class="table" id="cscFresh" data-color="rgba(0, 153, 204, .25)"
-	data-total=12 data-complete=0 data-inprogress=0 data-credit_gpa=0 data-gpa=0>
+	data-total="12" data-complete="0" data-inprogress="0" data-credit_gpa="0" data-gpa="0">
 
 	<!-- Row: Header -->
 	<tr id="cscFreshHead" name="tableHeader">
@@ -30,17 +38,17 @@ CSC Freshman
 		<!-- Course Category -->
 		<td name="tableCategory">
 			<input class="list header CSC" type="text" value="CSC Freshman:"
-				readonly=true></input>
+				readonly="readonly">
 		</td>
 		
 		<!-- Total Credits -->
 		<td name="tableCredits">
-			<input class="list credit total CSC" type="text" readonly=true></input>
+			<input class="list credit total CSC" type="text" readonly="readonly">
 		</td>
 		
 		<!-- GPA -->
 		<td name="tableGPA">
-			<input class="list grade total CSC" type="number" readonly=true></input>
+			<input class="list grade total CSC" type="number" readonly="readonly">
 		</td>
 		
 	</tr>
@@ -50,22 +58,22 @@ CSC Freshman
 	
 		<!-- Check Box -->
 		<td class="list check row">
-			<input class="checkbox" tabindex="2"
-				type="checkbox" tabindex="2" value="check" name="courseCheckBox"></input>
+			<input class="checkbox"
+				type="checkbox" tabindex="2" value="check" name="courseCheckBox">
 		</td>
 		
 		<!-- Course ID -->
 		<td name="courseID">
 			<input class="list course row" tabindex="3" type="text" value="CSC 110"
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Credits -->
 		<td name="courseCredits">
 			<input  class="list credit row" tabindex="3" type="number" value=1
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Grade Dropdown -->
@@ -87,21 +95,21 @@ CSC Freshman
 	
 		<!-- Check Box -->
 		<td class="list check row">
-			<input class="checkbox" tabindex="2"
-				type="checkbox" tabindex="2" value="check" name="courseCheckBox"></input>
+			<input class="checkbox"
+				type="checkbox" tabindex="2" value="check" name="courseCheckBox">
 		</td>
 		
 		<!-- Course ID -->
 		<td name="courseID">
 			<input class="list course row" tabindex="3" type="text" value="CSC 150/L"
-				readonly=true></input>
+				readonly="readonly">
 		</td>
 		
 		<!-- Credits -->
 		<td name="courseCredits">
 			<input class="list credit row" tabindex="3" type="number" value=3
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Grade Dropdown -->
@@ -123,23 +131,23 @@ CSC Freshman
 	
 		<!-- Check Box -->
 		<td class="list check row">
-			<input class="checkbox" tabindex="2"
+			<input class="checkbox"
 				type="checkbox" tabindex="2" value="check" name="courseCheckBox">
-			</input>
+			
 		</td>
 		
 		<!-- Course ID -->
 		<td name="courseID">
 			<input class="list course row" tabindex="3" type="text" value="CSC 250"
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Credits -->
 		<td name="courseCredits">
 			<input  class="list credit row" tabindex="3" type="number" value=4
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Grade Dropdown -->
@@ -161,23 +169,23 @@ CSC Freshman
 	
 		<!-- Check Box -->
 		<td class="list check row">
-			<input class="checkbox" tabindex="2"
+			<input class="checkbox"
 				type="checkbox" tabindex="2" value="check" name="courseCheckBox">
-			</input>
+			
 		</td>
 		
 		<!-- Course ID -->
 		<td name="courseID">
 			<input class="list course row" tabindex="3" type="text" value="CSC 251"
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Credits -->
 		<td name="courseCredits">
 			<input  class="list credit row" tabindex="3" type="number" value=4
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Grade Dropdown -->
@@ -210,24 +218,24 @@ CSC Sophomore
 	
 		<!-- Main Check Box -->
 		<td class="list check">
-			<input class="mainCheck" type="checkbox" tabindex="2" value="check"></input>
+			<input class="mainCheck" type="checkbox" tabindex="2" value="check">
 		</td>
 		
 		<!-- Course Category -->
 		<td name="tableCategory">
 			<input class="list header CSC" type="text" value="CSC Sophomore:"
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Total Credits -->
 		<td name="tableCredits">
-			<input class="list credit total CSC" type="text" readonly=true></input>
+			<input class="list credit total CSC" type="text" readonly="readonly">
 		</td>
 		
 		<!-- GPA -->
 		<td name="tableGPA">
-			<input class="list grade total CSC" type="number" readonly=true></input>
+			<input class="list grade total CSC" type="number" readonly="readonly">
 		</td>
 		
 	</tr>
@@ -237,23 +245,23 @@ CSC Sophomore
 	
 		<!-- Check Box -->
 		<td class="list check row">
-			<input class="checkbox" tabindex="2"
+			<input class="checkbox"
 				type="checkbox" tabindex="2" value="check" name="courseCheckBox">
-			</input>
+			
 		</td>
 		
 		<!-- Course ID -->
 		<td name="courseID">
 			<input class="list course row" tabindex="3" type="text" value="CSC 300"
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Credits -->
 		<td name="courseCredits">
 			<input  class="list credit row" tabindex="3" type="number" value=4
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Grade Dropdown -->
@@ -275,23 +283,23 @@ CSC Sophomore
 	
 		<!-- Check Box -->
 		<td class="list check row">
-			<input class="checkbox" tabindex="2"
+			<input class="checkbox"
 				type="checkbox" tabindex="2" value="check" name="courseCheckBox">
-			</input>
+			
 		</td>
 		
 		<!-- Course ID -->
 		<td name="courseID">
 			<input class="list course row" tabindex="3" type="text" value="CSC 314"
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Credits -->
 		<td name="courseCredits">
 			<input  class="list credit row" tabindex="3" type="number" value=3
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Grade Dropdown -->
@@ -317,31 +325,31 @@ CSC Junior
 <div class="table_container">
 
 <table class="table" id="cscJun" data-color="rgba(0, 153, 204, .25)"
-	data-total=17 data-complete=0 data-inprogress=0 data-credit_gpa=0 data-gpa=0>
+	data-total=19 data-complete=0 data-inprogress=0 data-credit_gpa=0 data-gpa=0>
 
 	<!-- Row: Header -->
 	<tr id="cscJunHead" name="tableHeader">
 	
 		<!-- Main Check Box -->
 		<td class="list check">
-			<input class="mainCheck" type="checkbox" tabindex="2" value="check"></input>
+			<input class="mainCheck" type="checkbox" tabindex="2" value="check">
 		</td>
 		
 		<!-- Course Category -->
 		<td name="tableCategory">
 			<input class="list header CSC" type="text" value="CSC Junior:"
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Total Credits -->
 		<td name="tableCredits">
-			<input class="list credit total CSC" type="text" readonly=true></input>
+			<input class="list credit total CSC" type="text" readonly="readonly">
 		</td>
 		
 		<!-- GPA -->
 		<td name="tableGPA">
-			<input class="list grade total CSC" type="number" readonly=true></input>
+			<input class="list grade total CSC" type="number" readonly="readonly">
 		</td>
 		
 	</tr>
@@ -351,23 +359,23 @@ CSC Junior
 	
 		<!-- Check Box -->
 		<td class="list check row">
-			<input class="checkbox" tabindex="2"
+			<input class="checkbox"
 				type="checkbox" tabindex="2" value="check" name="courseCheckBox">
-			</input>
+			
 		</td>
 		
 		<!-- Course ID -->
 		<td name="courseID">
 			<input class="list course row" tabindex="3" type="text" value="CSC 317"
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Credits -->
 		<td name="courseCredits">
 			<input  class="list credit row" tabindex="3" type="number" value=3
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Grade Dropdown -->
@@ -389,23 +397,23 @@ CSC Junior
 	
 		<!-- Check Box -->
 		<td class="list check row">
-			<input class="checkbox" tabindex="2"
+			<input class="checkbox"
 				type="checkbox" tabindex="2" value="check" name="courseCheckBox">
-			</input>
+			
 		</td>
 		
 		<!-- Course ID -->
 		<td name="courseID">
 			<input class="list course row" tabindex="3" type="text" value="CSC 372"
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Credits -->
 		<td name="courseCredits">
 			<input  class="list credit row" tabindex="3" type="number" value=3
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Grade Dropdown -->
@@ -427,23 +435,23 @@ CSC Junior
 	
 		<!-- Check Box -->
 		<td class="list check row">
-			<input class="checkbox" tabindex="2"
+			<input class="checkbox"
 				type="checkbox" tabindex="2" value="check" name="courseCheckBox">
-			</input>
+			
 		</td>
 		
 		<!-- Course ID -->
 		<td name="courseID">
 			<input class="list course row" tabindex="3" type="text" value="CSC 461"
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Credits -->
 		<td name="courseCredits">
 			<input  class="list credit row" tabindex="3" type="number" value=4
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Grade Dropdown -->
@@ -465,23 +473,23 @@ CSC Junior
 	
 		<!-- Check Box -->
 		<td class="list check row">
-			<input class="checkbox" tabindex="2"
+			<input class="checkbox"
 				type="checkbox" tabindex="2" value="check" name="courseCheckBox">
-			</input>
+			
 		</td>
 		
 		<!-- Course ID -->
 		<td name="courseID">
 			<input class="list course row" tabindex="3" type="text" value="CSC 468"
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Credits -->
 		<td name="courseCredits">
 			<input  class="list credit row" tabindex="3" type="number" value=3
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Grade Dropdown -->
@@ -503,23 +511,23 @@ CSC Junior
 	
 		<!-- Check Box -->
 		<td class="list check row">
-			<input class="checkbox" tabindex="2"
+			<input class="checkbox"
 				type="checkbox" tabindex="2" value="check" name="courseCheckBox">
-			</input>
+			
 		</td>
 		
 		<!-- Course ID -->
 		<td name="courseID">
 			<input class="list course row" tabindex="3" type="text" value="CSC 470"
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Credits -->
 		<td name="courseCredits">
 			<input  class="list credit row" tabindex="3" type="number" value=3
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Grade Dropdown -->
@@ -541,23 +549,23 @@ CSC Junior
 	
 		<!-- Check Box -->
 		<td class="list check row">
-			<input class="checkbox" tabindex="2"
+			<input class="checkbox"
 				type="checkbox" tabindex="2" value="check" name="courseCheckBox">
-			</input>
+			
 		</td>
 		
 		<!-- Course ID -->
 		<td name="courseID">
 			<input class="list course row" tabindex="3" type="text" value="CSC 484"
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Credits -->
 		<td name="courseCredits">
 			<input  class="list credit row" tabindex="3" type="number" value=3
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Grade Dropdown -->
@@ -590,24 +598,24 @@ CSC Senior
 	
 		<!-- Main Check Box -->
 		<td class="list check">
-			<input class="mainCheck" type="checkbox" tabindex="2" value="check"></input>
+			<input class="mainCheck" type="checkbox" tabindex="2" value="check">
 		</td>
 		
 		<!-- Course Category -->
 		<td name="tableCategory">
 			<input class="list header CSC" type="text" value="CSC Senior:"
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Total Credits -->
 		<td name="tableCredits">
-			<input class="list credit total CSC" type="text" readonly=true></input>
+			<input class="list credit total CSC" type="text" readonly="readonly">
 		</td>
 		
 		<!-- GPA -->
 		<td name="tableGPA">
-			<input class="list grade total CSC" type="number" readonly=true></input>
+			<input class="list grade total CSC" type="number" readonly="readonly">
 		</td>
 		
 	</tr>
@@ -617,23 +625,23 @@ CSC Senior
 	
 		<!-- Check Box -->
 		<td class="list check row">
-			<input class="checkbox" tabindex="2"
+			<input class="checkbox"
 				type="checkbox" tabindex="2" value="check" name="courseCheckBox">
-			</input>
+			
 		</td>
 		
 		<!-- Course ID -->
 		<td name="courseID">
 			<input class="list course row" tabindex="3" type="text" value="CSC 456/L"
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Credits -->
 		<td name="courseCredits">
 			<input  class="list credit row" tabindex="3" type="number" value=4
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Grade Dropdown -->
@@ -655,23 +663,23 @@ CSC Senior
 	
 		<!-- Check Box -->
 		<td class="list check row">
-			<input class="checkbox" tabindex="2"
+			<input class="checkbox"
 				type="checkbox" tabindex="2" value="check" name="courseCheckBox">
-			</input>
+			
 		</td>
 		
 		<!-- Course ID -->
 		<td name="courseID">
 			<input class="list course row" tabindex="3" type="text" value="CSC 464"
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Credits -->
 		<td name="courseCredits">
 			<input  class="list credit row" tabindex="3" type="number" value=2
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Grade Dropdown -->
@@ -693,23 +701,23 @@ CSC Senior
 	
 		<!-- Check Box -->
 		<td class="list check row">
-			<input class="checkbox" tabindex="2"
+			<input class="checkbox"
 				type="checkbox" tabindex="2" value="check" name="courseCheckBox">
-			</input>
+			
 		</td>
 		
 		<!-- Course ID -->
 		<td name="courseID">
 			<input class="list course row" tabindex="3" type="text" value="CSC 465"
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Credits -->
 		<td name="courseCredits">
 			<input  class="list credit row" tabindex="3" type="number" value=2
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Grade Dropdown -->
@@ -742,24 +750,24 @@ CSC Elective
 	
 		<!-- Main Check Box -->
 		<td class="list check">
-			<input class="mainCheck" type="checkbox" tabindex="2" value="check"></input>
+			<input class="mainCheck" type="checkbox" tabindex="2" value="check">
 		</td>
 		
 		<!-- Course Category -->
 		<td name="tableCategory">
 			<input class="list header CSC" type="text" value="CSC Electives:"
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Total Credits -->
 		<td name="tableCredits">
-			<input class="list credit total CSC" type="text" readonly=true></input>
+			<input class="list credit total CSC" type="text" readonly="readonly">
 		</td>
 		
 		<!-- GPA -->
 		<td name="tableGPA">
-			<input class="list grade total CSC" type="number" readonly=true></input>
+			<input class="list grade total CSC" type="number" readonly="readonly">
 		</td>
 		
 	</tr>
@@ -769,22 +777,22 @@ CSC Elective
 	
 		<!-- Check Box -->
 		<td class="list check row">
-			<input class="checkbox" tabindex="2"
+			<input class="checkbox"
 				type="checkbox" tabindex="2" value="check" name="courseCheckBox">
-			</input>
+			
 		</td>
 		
 		<!-- Course ID -->
 		<td name="courseID">
 			<input class="list course row" tabindex="3" type="text" value="CSC Elective">
-			</input>
+			
 		</td>
 		
 		<!-- Credits -->
 		<td name="courseCredits">
 			<input  class="list credit row" tabindex="3" type="number" value=3
 				min=3 max=4>
-			</input>
+			
 		</td>
 		
 		<!-- Grade Dropdown -->
@@ -806,22 +814,19 @@ CSC Elective
 	
 		<!-- Check Box -->
 		<td class="list check row">
-			<input class="checkbox" tabindex="2"
+			<input class="checkbox"
 				type="checkbox" tabindex="2" value="check" name="courseCheckBox">
-			</input>
 		</td>
 		
 		<!-- Course ID -->
 		<td name="courseID">
 			<input class="list course row" tabindex="3" type="text" value="CSC Elective">
-			</input>
 		</td>
 		
 		<!-- Credits -->
 		<td name="courseCredits">
 			<input  class="list credit row" tabindex="3" type="number" value=3
 				min=3 max=4>
-			</input>
 		</td>
 		
 		<!-- Grade Dropdown -->
@@ -843,22 +848,22 @@ CSC Elective
 	
 		<!-- Check Box -->
 		<td class="list check row">
-			<input class="checkbox" tabindex="2"
+			<input class="checkbox"
 				type="checkbox" tabindex="2" value="check" name="courseCheckBox">
-			</input>
+			
 		</td>
 		
 		<!-- Course ID -->
 		<td name="courseID">
 			<input class="list course row" tabindex="3" type="text" value="CSC Elective">
-			</input>
+			
 		</td>
 		
 		<!-- Credits -->
 		<td name="courseCredits">
 			<input  class="list credit row" tabindex="3" type="number" value=3
 				min=3 max=4>
-			</input>
+			
 		</td>
 		
 		<!-- Grade Dropdown -->
@@ -880,22 +885,22 @@ CSC Elective
 	
 		<!-- Check Box -->
 		<td class="list check row">
-			<input class="checkbox" tabindex="2"
+			<input class="checkbox"
 				type="checkbox" tabindex="2" value="check" name="courseCheckBox">
-			</input>
+			
 		</td>
 		
 		<!-- Course ID -->
 		<td name="courseID">
 			<input class="list course row" tabindex="3" type="text" value="CSC Elective">
-			</input>
+			
 		</td>
 		
 		<!-- Credits -->
 		<td name="courseCredits">
 			<input  class="list credit row" tabindex="3" type="number" value=3
 				min=3 max=4>
-			</input>
+			
 		</td>
 		
 		<!-- Grade Dropdown -->
@@ -932,24 +937,24 @@ Math
 	
 		<!-- Main Check Box -->
 		<td class="list check">
-			<input class="mainCheck" type="checkbox" tabindex="2" value="check"></input>
+			<input class="mainCheck" type="checkbox" tabindex="2" value="check">
 		</td>
 		
 		<!-- Course Category -->
 		<td name="tableCategory">
 			<input class="list header MATH" type="text" value="Math:"
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Total Credits -->
 		<td name="tableCredits">
-			<input class="list credit total MATH" type="text" readonly=true></input>
+			<input class="list credit total MATH" type="text" readonly="readonly">
 		</td>
 		
 		<!-- GPA -->
 		<td name="tableGPA">
-			<input class="list grade total MATH" type="number" readonly=true></input>
+			<input class="list grade total MATH" type="number" readonly="readonly">
 		</td>
 		
 	</tr>
@@ -959,23 +964,23 @@ Math
 	
 		<!-- Check Box -->
 		<td class="list check row">
-			<input class="checkbox" tabindex="2"
+			<input class="checkbox"
 				type="checkbox" tabindex="2" value="check" name="courseCheckBox">
-			</input>
+			
 		</td>
 		
 		<!-- Course ID -->
 		<td name="courseID">
 			<input class="list course row" tabindex="3" type="text" value="MATH 123"
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Credits -->
 		<td name="courseCredits">
 			<input  class="list credit row" tabindex="3" type="number" value=4
-				readonly=true>
-			</input>
+				readonly="readonly">
+			
 		</td>
 		
 		<!-- Grade Dropdown -->
@@ -1017,18 +1022,22 @@ Math
 <br/>
 <div>
 	Progress:
-	<input id="progress" type="number" value=0 readonly=true></input>
+	<input id="progress" type="number" value=0 readonly="readonly">
 	%
 	<br/>
 	Cumulative GPA:
-	<input id="cumulative_gpa" type="number" value=0 readonly=true></input>
+	<input id="cumulative_gpa" type="number" value=0 readonly="readonly">
 	<br/>
 	Completed Credits:
-	<input id="completed_credits" type="number" value=0 readonly=true></input>
+	<input id="completed_credits" type="number" value=0 readonly="readonly">
 	<br/>
 	In Progress:
-	<input id="in_progress" type="number" value=0 readonly=true></input>
+	<input id="in_progress" type="number" value=0 readonly="readonly">
 	<br/>
+	<div id="progress_bar" class="progress">
+		<div id="bar_complete" class="bar CSC"></div>
+		<div id="bar_inprogress" class="bar csc"></div>
+	</div>
 </div>
 
 <!-- Progress Bar -->
