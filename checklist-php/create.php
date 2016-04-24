@@ -3,18 +3,21 @@
 include '..\\DansRepo\\includes\\mcs-user.php';
 
 
-if( MCSUSER::isAuthenticated() )  // make sure user is logged in
+if( MCSUSER::isAuthenticated())  // make sure user is logged in
 {
-    $user = MCSUSER::getUsername(); // get the username (student id)
-    $file = $user.".xml";    // create the string for the .xml file for the student
+    $user = MCSUSER::getCurrentUser(); // get the user
+    
+    $ID = user->getUserName();  // get the username (student id)
+    
+    $file = $ID.".xml";    // create the string for the student checklist .xml file
       
 
-    if(isset ($_POST['submit']))
+    if(isset ($_POST['submit']))  // if the user has click the "save changes" button on the checklist html form
     {
         $xml = new DomDocument("1.0", "UTF-8");
         
         //try to load the relevant xml file
-        $xml.simplexml_load_file("..\\student-checklists\\{$file}");
+        $xml.simplexml_load_file("..\\student-checklists\\{$file}");  // try to load an existing checklist xml file
         
         if( $xml == false )  // if there is not an existing studentid.xml file 
         { 
@@ -35,22 +38,22 @@ if( MCSUSER::isAuthenticated() )  // make sure user is logged in
                     {
                         if( $course['id'] == 'csc110' )  // csc 110
                         {
-                            if( _$POST['csc110_chbox'] ) 
+                            if( _$POST['csc110_chbox'] ) // check to see if the state of the check box associated with the course has changed
                             {
-                                $course['isComplete'] = _$POST['csc110_chbox'].Value;
+                                $course['isComplete'] = _$POST['csc110_chbox'].Value;  // apply the change to the xml
                             }
                             
-                            if( _$POST['csc110_grade'] )
+                            if( _$POST['csc110_grade'] )  // check to see if the state of the grade input form has changed
                             {
-                               $course->grade = _$POST['csc110_grade'].Value;
+                               $course->grade = _$POST['csc110_grade'].Value;  // apply the change to the xml
                             }
                             
-                            $xml->save("{$file}");
+                            $xml->save("{$file}");  // save the modified xml to file
                             
                         }
                         else if( $course['id'] == 'csc150' )  // csc 150
                         {
-                            if( _$POST['csc150_chbox'] )
+                            if( _$POST['csc150_chbox'])
                             {
                                 $course['isComplete'] = _$POST['csc150_chbox'].Value;
                             }
@@ -395,12 +398,9 @@ if( MCSUSER::isAuthenticated() )  // make sure user is logged in
                             }
                             
                             $xml->save("{$file}");
-                        }
-                        
-                    }
-                    
-                }
-                
+                        }                       
+                    }                   
+                }               
             }
             else if ($unit->getName() == 'csc_elective')  // if processing the required csc elective courses
             {
@@ -418,12 +418,12 @@ if( MCSUSER::isAuthenticated() )  // make sure user is logged in
                            $course->grade = _$POST['cscelective1_grade'].Value;
                         }
                         
-                        if( _$POST['cscelective1_name'])
+                        if( _$POST['cscelective1_name'])  // need to check for the name of the elective and save it to xml
                         {
                             $course->title = _$POST['cscelective1_name'].Value;
                         }
                         
-                        if( _$POST['cscelective1_credits'])
+                        if( _$POST['cscelective1_credits'])  // need to check for the credit value of the elective and save it to xml
                         {
                             $course->credits = _$POST['cscelective1_credits'].Value;
                         }
@@ -437,7 +437,7 @@ if( MCSUSER::isAuthenticated() )  // make sure user is logged in
                             $course['isComplete'] = _$POST['cscelective2_chbox'].Value;
                         }
                         
-                        if( _$POST['cscelective1_grade']
+                        if( _$POST['cscelective2_grade']
                         {
                            $course->grade = _$POST['cscelective2_grade'].Value;
                         }
@@ -764,7 +764,152 @@ if( MCSUSER::isAuthenticated() )  // make sure user is logged in
             }
             else if( $unit->getName() == 'free')
             {
-                
+                foreach ($unit->free->children() as $course )
+                {
+                    if($course['id'] == 'free1')
+                    {
+                        if( _$POST['free1_chbox']
+                        {
+                            $course['isComplete'] = _$POST['free1_chbox'].Value;
+                        }
+                        
+                        if( _$POST['free1_grade']
+                        {
+                           $course->grade = _$POST['free1_grade'].Value;
+                        }
+                        
+                        if( _$POST['free1_name'])  // need to check for the name of the elective and save it to xml
+                        {
+                            $course->title = _$POST['free1_name'].Value;
+                        }
+                        
+                        if( _$POST['free1_credits'])  // need to check for the credit value of the elective and save it to xml
+                        {
+                            $course->credits = _$POST['free1_credits'].Value;
+                        }
+                        
+                        $xml->save("{$file}");
+                    }
+                    else if( $course['id'] == 'free2')
+                    {
+                        if( _$POST['free2_chbox']
+                        {
+                            $course['isComplete'] = _$POST['free2_chbox'].Value;
+                        }
+                        
+                        if( _$POST['free2_grade']
+                        {
+                           $course->grade = _$POST['free2_grade'].Value;
+                        }
+                        
+                        if( _$POST['free2_name'])
+                        {
+                            $course->title = _$POST['free2_name'].Value;
+                        }
+                        
+                        if( _$POST['free2_credits'])
+                        {
+                            $course->credits = _$POST['free2_credits'].Value;
+                        }
+                        
+                        $xml->save("{$file}");
+                    }
+                    else if( $course['id'] == 'free3')
+                    {
+                        if( _$POST['free3_chbox']
+                        {
+                            $course['isComplete'] = _$POST['free3_chbox'].Value;
+                        }
+                        
+                        if( _$POST['free3_grade']
+                        {
+                           $course->grade = _$POST['free3_grade'].Value;
+                        }
+                        
+                        if( _$POST['free3_name'])
+                        {
+                            $course->title = _$POST['free3_name'].Value;
+                        }
+                        
+                        if( _$POST['free3_credits'])
+                        {
+                            $course->credits = _$POST['free3_credits'].Value;
+                        }
+                        
+                        $xml->save("{$file}");
+                    }
+                    else if( $course['id'] == 'free4')
+                    {
+                        if( _$POST['free4_chbox']
+                        {
+                            $course['isComplete'] = _$POST['free4_chbox'].Value;
+                        }
+                        
+                        if( _$POST['free4_grade']
+                        {
+                           $course->grade = _$POST['free4_grade'].Value;
+                        }
+                        
+                        if( _$POST['free4_name'])
+                        {
+                            $course->title = _$POST['free4_name'].Value;
+                        }
+                        
+                        if( _$POST['free4_credits'])
+                        {
+                            $course->credits = _$POST['free4_credits'].Value;
+                        }
+                        
+                        $xml->save("{$file}");
+                }
+                else if( $course['id'] == 'free5')
+                    {
+                        if( _$POST['free5_chbox']
+                        {
+                            $course['isComplete'] = _$POST['free5_chbox'].Value;
+                        }
+                        
+                        if( _$POST['free5_grade']
+                        {
+                           $course->grade = _$POST['free5_grade'].Value;
+                        }
+                        
+                        if( _$POST['free5_name'])
+                        {
+                            $course->title = _$POST['free5_name'].Value;
+                        }
+                        
+                        if( _$POST['free5_credits'])
+                        {
+                            $course->credits = _$POST['free5_credits'].Value;
+                        }
+                        
+                        $xml->save("{$file}");
+                }
+                else if( $course['id'] == 'free6')
+                    {
+                        if( _$POST['free6_chbox']
+                        {
+                            $course['isComplete'] = _$POST['free6_chbox'].Value;
+                        }
+                        
+                        if( _$POST['free6_grade']
+                        {
+                           $course->grade = _$POST['free6_grade'].Value;
+                        }
+                        
+                        if( _$POST['free6_name'])
+                        {
+                            $course->title = _$POST['free6_name'].Value;
+                        }
+                        
+                        if( _$POST['free6_credits'])
+                        {
+                            $course->credits = _$POST['free6_credits'].Value;
+                        }
+                        
+                        $xml->save("{$file}");
+                }
             }   
             
         }
@@ -791,11 +936,8 @@ if( MCSUSER::isAuthenticated() )  // make sure user is logged in
         $libArt = $checklist->libarts;
         
         $freeCourse = $checklist->free;
-        
         */
-        
-        
-        
+              
         
         
         

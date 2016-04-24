@@ -324,11 +324,41 @@ courseList.xml and subsequently math.xml and csc.xml -->
 		<color2>rgba(0, 153, 204, .25)</color>
 		<title>Free Electives</title>
         
-		<course id ="free" isComplete="no">
+		<course id ="free1" isComplete="no">
 			<title></title>+
 			<grade></grade>
 			<credits>7</credits>
-        </course>             
+        </course> 
+        
+        <course id ="free2" isComplete="no">
+			<title></title>+
+			<grade></grade>
+			<credits>7</credits>
+        </course>  
+        
+        <course id ="free3" isComplete="no">
+			<title></title>+
+			<grade></grade>
+			<credits>7</credits>
+        </course>  
+        
+        <course id ="free4" isComplete="no">
+			<title></title>+
+			<grade></grade>
+			<credits>7</credits>
+        </course>  
+        
+        <course id ="free5" isComplete="no">
+			<title></title>+
+			<grade></grade>
+			<credits>7</credits>
+        </course>  
+        
+        <course id ="free6" isComplete="no">
+			<title></title>+
+			<grade></grade>
+			<credits>7</credits>
+        </course>  
         
 	</free>
     
