@@ -11,17 +11,19 @@
 	<form action="checklist.php" method="post"> </form>
 <!--/pipin' that php-->
 
-<div class="table_container title">
-	Graduation:
-	<select  name="graduationDate" tabindex="1">
-		<option value="test">test</option>
-		<option value="2017">2017</option>
-	</select>
-</div>
+    <div class="statbar">
+        <div class="title">
+            Graduation:
+            <select class="dropdown" name="graduationDate" tabindex="1">
+                <option value="test">test</option>
+                <option value="2017">2017</option>
+            </select>
+        </div>
 
-<div class="table_container title">
-    <button id="submit">Save Changes</button>
-</div>
+        <div class="title">
+            <button id="submit">Save Changes</button>
+        </div>
+    </div>
 
 <br/>
 
@@ -1027,9 +1029,6 @@ Math
 <!-- GPA Calculations -->
 <br/>
 <div>
-	Progress:
-	<input id="progress" type="number" value=0 readonly="readonly">
-	%
 	<br/>
 	Cumulative GPA:
 	<input id="cumulative_gpa" type="number" value=0 readonly="readonly">
@@ -1040,10 +1039,16 @@ Math
 	In Progress:
 	<input id="in_progress" type="number" value=0 readonly="readonly">
 	<br/>
-	<div id="progress_bar" class="progress">
-		<div id="bar_complete" class="bar CSC"></div>
-		<div id="bar_inprogress" class="bar csc"></div>
-	</div>
+    <div class="title">        
+        Progress:
+        <input class="title credit" syle="width:30px;" id="progress" type="number" value=0 readonly="readonly">
+        %
+    </div>
+    <br/>
+    <div id="progress_bar" class="progress">
+        <div id="bar_complete" class="bar CSC"></div>
+        <div id="bar_inprogress" class="bar csc"></div>
+    </div>
 </div>
 
 <!-- Progress Bar -->
