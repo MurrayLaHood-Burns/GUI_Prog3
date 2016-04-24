@@ -2,9 +2,15 @@
 <html lang="en-US">
 <head>
     <link rel="stylesheet" type="text/css" href="checklist.css">
+    <link rel="stylesheet" type="text/css" href="sidebar.css">
     <script src="checklist.js"></script>
+    <script src="sidebar.js"></script>
+
+
+
 </head>
 <body onload="init()">
+
 
     <!--pipin' that php-->
     <form action="checklist.php" method="post"> </form>
@@ -80,7 +86,7 @@
 
                 <!-- Check Box -->
                 <td class="list check row">
-                    <input class="checkbox"
+                    <input class="checkbox" id="csc110_chbox"
                            type="checkbox" tabindex="2" value="check" name="courseCheckBox">
                 </td>
 
@@ -117,7 +123,7 @@
 
                 <!-- Check Box -->
                 <td class="list check row">
-                    <input class="checkbox"
+                    <input class="checkbox" id="csc150_chbox"
                            type="checkbox" tabindex="2" value="check" name="courseCheckBox">
                 </td>
 
@@ -153,7 +159,7 @@
 
                 <!-- Check Box -->
                 <td class="list check row">
-                    <input class="checkbox"
+                    <input class="checkbox" id="csc250_chbox"
                            type="checkbox" tabindex="2" value="check" name="courseCheckBox">
 
                 </td>
@@ -191,7 +197,7 @@
 
                 <!-- Check Box -->
                 <td class="list check row">
-                    <input class="checkbox"
+                    <input class="checkbox" id="csc251_chbox"
                            type="checkbox" tabindex="2" value="check" name="courseCheckBox">
 
                 </td>
@@ -267,7 +273,7 @@
 
                 <!-- Check Box -->
                 <td class="list check row">
-                    <input class="checkbox"
+                    <input class="checkbox" id="csc300_chbox"
                            type="checkbox" tabindex="2" value="check" name="courseCheckBox">
 
                 </td>
@@ -305,7 +311,7 @@
 
                 <!-- Check Box -->
                 <td class="list check row">
-                    <input class="checkbox"
+                    <input class="checkbox" id="314_chbox"
                            type="checkbox" tabindex="2" value="check" name="courseCheckBox">
 
                 </td>
@@ -381,7 +387,7 @@
 
                 <!-- Check Box -->
                 <td class="list check row">
-                    <input class="checkbox"
+                    <input class="checkbox" id="csc217_chbox"
                            type="checkbox" tabindex="2" value="check" name="courseCheckBox">
 
                 </td>
@@ -419,7 +425,7 @@
 
                 <!-- Check Box -->
                 <td class="list check row">
-                    <input class="checkbox"
+                    <input class="checkbox" id="csc372_chbox"
                            type="checkbox" tabindex="2" value="check" name="courseCheckBox">
 
                 </td>
@@ -457,7 +463,7 @@
 
                 <!-- Check Box -->
                 <td class="list check row">
-                    <input class="checkbox"
+                    <input class="checkbox" id="csc461_chbox"
                            type="checkbox" tabindex="2" value="check" name="courseCheckBox">
 
                 </td>
@@ -495,7 +501,7 @@
 
                 <!-- Check Box -->
                 <td class="list check row">
-                    <input class="checkbox"
+                    <input class="checkbox" id="468_chbox"
                            type="checkbox" tabindex="2" value="check" name="courseCheckBox">
 
                 </td>
@@ -533,7 +539,7 @@
 
                 <!-- Check Box -->
                 <td class="list check row">
-                    <input class="checkbox"
+                    <input class="checkbox" id="470_chbox"
                            type="checkbox" tabindex="2" value="check" name="courseCheckBox">
 
                 </td>
@@ -571,7 +577,7 @@
 
                 <!-- Check Box -->
                 <td class="list check row">
-                    <input class="checkbox"
+                    <input class="checkbox" id="csc484_chbox"
                            type="checkbox" tabindex="2" value="check" name="courseCheckBox">
 
                 </td>
@@ -647,7 +653,7 @@
 
                 <!-- Check Box -->
                 <td class="list check row">
-                    <input class="checkbox"
+                    <input class="checkbox" id="csc456_chbox"
                            type="checkbox" tabindex="2" value="check" name="courseCheckBox">
 
                 </td>
@@ -685,7 +691,7 @@
 
                 <!-- Check Box -->
                 <td class="list check row">
-                    <input class="checkbox"
+                    <input class="checkbox" id="csc464_chbox"
                            type="checkbox" tabindex="2" value="check" name="courseCheckBox">
 
                 </td>
@@ -723,7 +729,7 @@
 
                 <!-- Check Box -->
                 <td class="list check row">
-                    <input class="checkbox"
+                    <input class="checkbox" id="csc465_chbox"
                            type="checkbox" tabindex="2" value="check" name="courseCheckBox">
 
                 </td>
@@ -799,7 +805,7 @@
 
                 <!-- Check Box -->
                 <td class="list check row">
-                    <input class="checkbox"
+                    <input class="checkbox" id="cscelect1_chbox"
                            type="checkbox" tabindex="2" value="check" name="courseCheckBox">
 
                 </td>
@@ -836,7 +842,7 @@
 
                 <!-- Check Box -->
                 <td class="list check row">
-                    <input class="checkbox"
+                    <input class="checkbox" id="_chbox"
                            type="checkbox" tabindex="2" value="check" name="courseCheckBox">
                 </td>
 
@@ -870,7 +876,7 @@
 
                 <!-- Check Box -->
                 <td class="list check row">
-                    <input class="checkbox"
+                    <input class="checkbox" id="_chbox"
                            type="checkbox" tabindex="2" value="check" name="courseCheckBox">
 
                 </td>
@@ -907,7 +913,7 @@
 
                 <!-- Check Box -->
                 <td class="list check row">
-                    <input class="checkbox"
+                    <input class="checkbox" id="_chbox"
                            type="checkbox" tabindex="2" value="check" name="courseCheckBox">
 
                 </td>
@@ -987,7 +993,7 @@
 
                 <!-- Check Box -->
                 <td class="list check row">
-                    <input class="checkbox"
+                    <input class="checkbox" id="_chbox"
                            type="checkbox" tabindex="2" value="check" name="courseCheckBox">
 
                 </td>
@@ -995,6 +1001,44 @@
                 <!-- Course ID -->
                 <td name="courseID">
                     <input class="list course row" tabindex="3" type="text" value="MATH 123"
+                           readonly="readonly">
+
+                </td>
+
+                <!-- Credits -->
+                <td name="courseCredits">
+                    <input class="list credit row" tabindex="3" type="number" value=4
+                           readonly="readonly">
+
+                </td>
+
+                <!-- Grade Dropdown -->
+                <td>
+                    <select class="list dropdown row" name="courseGrade" tabindex="1">
+                        <option value="null"></option>
+                        <option value=4>A</option>
+                        <option value=3>B</option>
+                        <option value=2>C</option>
+                        <option value=1>D</option>
+                        <option value="EX">EX</option>
+                    </select>
+                </td>
+
+            </tr>
+
+            <!-- Row: MATH125 -->
+            <tr id="math125" name="course">
+
+                <!-- Check Box -->
+                <td class="list check row">
+                    <input class="checkbox" id="math125_chbox"
+                           type="checkbox" tabindex="2" value="check" name="courseCheckBox">
+
+                </td>
+
+                <!-- Course ID -->
+                <td name="courseID">
+                    <input class="list course row" tabindex="3" type="text" value="MATH 125"
                            readonly="readonly">
 
                 </td>
@@ -1028,43 +1072,83 @@
 
     </div>
 
-    <!-- Science -->
-    <a class="list link SCI" href="science_list.html" target="_blank">
-        List of Science Courses
-    </a>
 
-    <!-- Gen Eds -->
-    <a class="list link GEN" href="gen_list.html" target="_blank">
-        List of Gen Eds
-    </a>
+    <!--***************************************************************************
+    Science
+    ****************************************************************************-->
+    <div class="table_container">
 
-    <!-- English -->
-    <!-- Free Credits -->
-    <a class="list link FREE" href="free_list.html" target="_blank">
-        Free Credit Suggestions
-    </a>
+        <table class="table" id="math" data-color="rgba(51, 102, 255, .25)"
+               data-total=21 data-complete=0 data-inprogress=0 data-credit_gpa=0 data-gpa=0>
 
-    <!-- GPA Calculations -->
-    <br />
-    <br />
+            <!-- Row: Header -->
+            <tr id="mathHead" name="tableHeader">
 
-    <div style="background-color:#B3A369; padding-top:10px; padding-bottom:40px;">
+                <!-- Main Check Box -->
+                <td class="list check">
+                    <input class="mainCheck" type="checkbox" tabindex="2" value="check">
+                </td>
 
-        <div class="title" style="display:block;">
-            Progress:
-            <input class="title percent" id="progress" type="text" value="0%" readonly="readonly">
+                <!-- Course Category -->
+                <td name="tableCategory">
+                    <input class="list header MATH" type="text" value="Math:"
+                           readonly="readonly">
+
+                </td>
+
+                <!-- Total Credits -->
+                <td name="tableCredits">
+                    <input class="list credit total MATH" type="text" readonly="readonly">
+                </td>
+
+                <!-- GPA -->
+                <td name="tableGPA">
+                    <input class="list grade total MATH" type="number" readonly="readonly">
+                </td>
+
+            </tr>
+
+            </table>
+
+            <!-- Science -->
+            <a class="list link SCI" href="science_list.html" target="_blank">
+                List of Science Courses
+            </a>
+
         </div>
-        <br />
-
-        <div id="progress_bar" class="progress">
-            <div id="bar_complete" class="bar CSC"></div>
-            <div id="bar_inprogress" class="bar csc"></div>
-        </div>
-
-    </div>
 
 
+            <!-- Gen Eds -->
+            <a class="list link GEN" href="gen_list.html" target="_blank">
+                List of Gen Eds
+            </a>
 
-        <!-- Progress Bar -->
+            <!-- English -->
+            <!-- Free Credits -->
+            <a class="list link FREE" href="free_list.html" target="_blank">
+                Free Credit Suggestions
+            </a>
+
+            <!--***************************************************************************
+            Progress Bar
+            ****************************************************************************-->
+
+            <br />
+            <br />
+
+            <div style="background-color:#B3A369; padding-top:10px; padding-bottom:40px;">
+
+                <div class="title" style="display:block;">
+                    Progress:
+                    <input class="title percent" id="progress" type="text" value="0%" readonly="readonly">
+                </div>
+                <br />
+
+                <div id="progress_bar" class="progress">
+                    <div id="bar_complete" class="bar CSC"></div>
+                    <div id="bar_inprogress" class="bar csc"></div>
+                </div>
+
+            </div>
 </body>
 </html>
