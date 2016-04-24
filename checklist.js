@@ -168,7 +168,7 @@ function updateStats()
 	percentComplete = sumCredComplete/totalCreditsPossible * 100;
 	percentInProgress = sumInProgress/totalCreditsPossible * 100;
 	
-	progress.value = Math.round(percentComplete);
+	progress.value = Math.round(percentComplete).toString() + "%";
 	gpa.value = cumulativeGPA.toFixed(2);
 	completedCredits.value = sumCredComplete;
 	inProgress.value = sumInProgress;
