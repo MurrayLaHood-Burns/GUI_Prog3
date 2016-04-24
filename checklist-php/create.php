@@ -1,8 +1,11 @@
 <?php
 
-if( USER::isAuthenticated() )  // make sure user is logged in
+include '..\\DansRepo\\includes\\mcs-user.php';
+
+
+if( MCSUSER::isAuthenticated() )  // make sure user is logged in
 {
-    $user = User::getUsername(); // get the username (student id)
+    $user = MCSUSER::getUsername(); // get the username (student id)
     $file = $user.".xml";    // create the string for the .xml file for the student
       
 
@@ -26,18 +29,18 @@ if( USER::isAuthenticated() )  // make sure user is logged in
             //process each one individually, checking for POST requests relevant to the element
             if( $unit->getName() == 'standing' )
             {
-                if( $unit->standing['id'] == 'fresh' )
+                if( $unit->standing['id'] == 'fresh' )  // if processing freshman courses
                 {
-                    foreach ($unit->standing->children() as $course)
+                    foreach ($unit->standing->children() as $course) // for each required course of freshman level
                     {
-                        if( $course['id'] == 'csc110' )
+                        if( $course['id'] == 'csc110' )  // csc 110
                         {
-                            if( _$POST['csc110_chbox']
+                            if( _$POST['csc110_chbox'] ) 
                             {
                                 $course['isComplete'] = _$POST['csc110_chbox'].Value;
                             }
                             
-                            if( _$POST['csc110_grade']
+                            if( _$POST['csc110_grade'] )
                             {
                                $course->grade = _$POST['csc110_grade'].Value;
                             }
@@ -45,42 +48,42 @@ if( USER::isAuthenticated() )  // make sure user is logged in
                             $xml->save("{$file}");
                             
                         }
-                        else if( $course['id'] == 'csc150' )
+                        else if( $course['id'] == 'csc150' )  // csc 150
                         {
-                            if( _$POST['csc150_chbox']
+                            if( _$POST['csc150_chbox'] )
                             {
                                 $course['isComplete'] = _$POST['csc150_chbox'].Value;
                             }
                             
-                            if( _$POST['csc150_grade']
+                            if( _$POST['csc150_grade'] )
                             {
                                $course->grade = _$POST['csc150_grade'].Value;
                             }
                             
                             $xml->save("{$file}");
                         }
-                        else if( $course['id'] == 'csc250' )
+                        else if( $course['id'] == 'csc250' )  // csc 250 
                         {
-                            if( _$POST['csc250_chbox']
+                            if( _$POST['csc250_chbox'] )
                             {
                                 $course['isComplete'] = _$POST['csc250_chbox'].Value;
                             }
                             
-                            if( _$POST['csc250_grade']
+                            if( _$POST['csc250_grade'] )
                             {
                                $course->grade = _$POST['csc250_grade'].Value;
                             }
                             
                             $xml->save("{$file}");
                         }
-                        else if( $course['id'] == 'csc251' )
+                        else if( $course['id'] == 'csc251' )  // csc 251
                         {
-                            if( _$POST['csc251_chbox']
+                            if( _$POST['csc251_chbox'] )
                             {
                                 $course['isComplete'] = _$POST['csc251_chbox'].Value;
                             }
                             
-                            if( _$POST['csc251_grade']
+                            if( _$POST['csc251_grade'] )
                             {
                                $course->grade = _$POST['csc251_grade'].Value;
                             }
@@ -134,9 +137,9 @@ if( USER::isAuthenticated() )  // make sure user is logged in
                         
                     }
                 }
-                else if( $unit ->standing['id'] == 'soph')
+                else if( $unit ->standing['id'] == 'soph')  //if processing sophmore courses
                 {
-                    foreach ($unit->standing->children() as $course)
+                    foreach ($unit->standing->children() as $course)  // for each required course at the sophmore level
                     {
                         if($course['id'] == 'csc300')
                         {
@@ -211,9 +214,9 @@ if( USER::isAuthenticated() )  // make sure user is logged in
                     }
 
                 }
-                else if ($unit->standing['id'] == 'junior')
+                else if ($unit->standing['id'] == 'junior')  // if processing junior level classes
                 {
-                    foreach ($unit->standing->children() as $course)
+                    foreach ($unit->standing->children() as $course)  // for each required course of junior level
                     {
                         if($course['id'] == 'csc317')
                         {
@@ -317,9 +320,9 @@ if( USER::isAuthenticated() )  // make sure user is logged in
                     }
                     
                 }
-                else if($unit->standing['id'] == 'senior')
+                else if($unit->standing['id'] == 'senior')  // if processing senior level courses
                 {
-                    foreach ($unit->standing->children() as $course)
+                    foreach ($unit->standing->children() as $course)  // for each required course at the senior level
                     {
                         if($course['id'] == 'csc421')
                         {
@@ -399,9 +402,9 @@ if( USER::isAuthenticated() )  // make sure user is logged in
                 }
                 
             }
-            else if ($unit->getName() == 'csc_elective')
+            else if ($unit->getName() == 'csc_elective')  // if processing the required csc elective courses
             {
-                foreach ($unit->standing->children() as $course)
+                foreach ($unit->standing->children() as $course)  // for each of the said elective courses
                 {
                     if($course['id'] == 'cscelective1')
                     {
@@ -503,7 +506,7 @@ if( USER::isAuthenticated() )  // make sure user is logged in
                 }
                 
             }
-            else if($unit->getName() == 'math_elective')
+            else if($unit->getName() == 'math_elective')  // if processing the required math elective course
             {
                 if( _$POST['math_elective_chbox']
                 {
@@ -527,7 +530,7 @@ if( USER::isAuthenticated() )  // make sure user is logged in
                 
                 $xml->save("{$file}");
             }
-            else if( $unit->getName() == 'science_requirement')
+            else if( $unit->getName() == 'science_requirement')  // if processing the required science courses
             {
                 foreach ($unit->standing->children() as $course)
                     {
@@ -762,9 +765,7 @@ if( USER::isAuthenticated() )  // make sure user is logged in
             else if( $unit->getName() == 'free')
             {
                 
-            }
-            
-            
+            }   
             
         }
         
