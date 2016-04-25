@@ -1,6 +1,6 @@
 /********************************** globals **********************************/
 var totalCreditsPossible = 120;
-var date_array = {"test": "","2017": "","luke": ""};
+var date_array = {"test": "","2017": ""};
 
 /*****************************************************************************
 init
@@ -31,7 +31,6 @@ function init()
     // initialize page values
 	date_array["test"] = window.grad_test;
 	date_array["2017"] = window.grad_2017();
-	date_array["luke"] = window.grad_luke;
 }
 
 
@@ -221,8 +220,8 @@ function updateProgress(percentComplete, percentInProgress)
 	var barComplete = document.getElementById("bar_complete");
 	var barInProgress = document.getElementById("bar_inprogress");
 	
-	var completeWidth = percentComplete * .7;
-	var inProgressWidth = percentInProgress *.7;
+	var completeWidth = percentComplete;
+	var inProgressWidth = percentInProgress;
 	
 	completeWidth = completeWidth.toString();
 	inProgressWidth = inProgressWidth.toString();
