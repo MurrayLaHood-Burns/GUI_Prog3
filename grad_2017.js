@@ -1,7 +1,8 @@
-var grad_2017 =
-    `
+function grad_2017()
+{
+    var xml = window.xml_2017;
 
-    <div id="catalog">2017</div>
-
- `
-;
+    return `
+    <div id="catalog">2017 function</div>
+    `;
+}

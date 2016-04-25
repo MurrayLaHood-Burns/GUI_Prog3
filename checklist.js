@@ -14,7 +14,7 @@ function init()
         // initialize page values
 	    var date_array = {
 	        "test": window.grad_test,
-	        "2017": window.grad_2017,
+	        "2017": window.grad_2017(),
             "luke" : window.grad_luke
 	    };
 
