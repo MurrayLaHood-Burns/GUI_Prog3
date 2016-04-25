@@ -23,15 +23,6 @@ CSC Freshman
     <course id="csc251" title="CSC 251" credits="4" readonly="true">
     </course>
     
-    <course id="math123" title="Math 123 - Calculus 1" credits="4" readonly="true">
-    </course>
-    
-    <course id="math125" title="Math 125 - Calculus 2" credits="4" readonly="true">
-    </course>
-    
-    <course id="engl101" title="ENGL 101 - Composition I" credits="3" readonly="true">
-    </course>
-    
   </table>
   
 <!--***************************************************************************
@@ -47,18 +38,6 @@ CSC Sophomore
     </course>
     
     <course id="csc314" title="CSC 314" credits="3" readonly="true">
-    </course>
-    
-    <course id="math225" title="MATH 225 - Calculus 3" credits="4" readonly="true">
-    </course>
-    
-    <course id="math315" title="MATH 315 - Linear Algebra" credits="3" readonly="true">
-    </course>
-    
-    <course id="math315" title="MATH 315 - Linear Algebra" credits="3" readonly="true">
-    </course>
-    
-    <course id="engl279" title="ENGL 279 - Technical Communication 1" credits="3" readonly="true">
     </course>
   
   </table>
@@ -89,12 +68,6 @@ CSC Junior
     
     <course id="csc484" title="CSC 484" credits="3" readonly="true">
     </course>
-    
-    <course id="engl289" title="ENGL 289 - Technical Communcation 2" credits="3" readonly="true">
-    </course>
-    
-    <course id="phys211" title="PHYS 211 - University Physics 1" credits="3" readonly="true">
-    </course>
   
   </table>
   
@@ -107,21 +80,18 @@ CSC Senior
     <header id="cscSenHead" title="CSC Senior:">
     </header>
     
-    <course id="csc421" title="CSC 421 - Graphical User Interface" credits="3" readonly="true">
+    <course id="csc421" title="CSC 421" credits="3" readonly="true">
     </course>
     
-    <course id="csc465" title="CSC 465 - Senior Design I" credits="2" readonly="true">
+    <course id="csc465" title="CSC 465" credits="2" readonly="true">
     </course>
     
-    <course id="csc467" title="CSC 467 - Senior Design II" credits="2" readonly="true">
+    <course id="csc467" title="CSC 467" credits="2" readonly="true">
     </course>
     
-    <course id="csc456" title="CSC 456 - Operating Systems" credits="4" readonly="true">
+    <course id="csc456" title="CSC 456" credits="4" readonly="true">
     </course>
     
-    <course id="math381" title="MATH 381 - Intro. to Probability and Stats." credits="3" readonly="true">
-    </course>
-  
   </table>
   
 <!--***************************************************************************
@@ -133,16 +103,16 @@ CSC Electives
     <header id="cscElectHead" title="CSC Electives:">
     </header>
     
-    <course id="cscelective1" title="Upper Level CSC _elective" credits="" readonly="false">
+    <course id="cscelective1" title="CSC Elective" credits="3" readonly="false">
     </course>
     
-    <course id="cscelective2" title="Upper Level CSC _elective" credits="" readonly="false">
+    <course id="cscelective2" title="CSC Elective" credits="3" readonly="false">
     </course>
     
-    <course id="cscelective3" title="Upper Level CSC _elective" credits="" readonly="false">
+    <course id="cscelective3" title="CSC Elective" credits="3" readonly="false">
     </course>
     
-    <course id="cscelective4" title="Upper Level CSC _elective" credits="" readonly="false">
+    <course id="cscelective4" title="CSC Elective" credits="3" readonly="false">
     </course>
   
   </table>
@@ -156,7 +126,22 @@ Math
     <header id="mathHead" title="Math:">
     </header>
     
-    <course id="math_elective" title="Math Elective" credits="" readonly="false">
+    <course id="math123" title="Math 123" credits="4" readonly="true">
+    </course>
+    
+    <course id="math125" title="Math 125" credits="4" readonly="true">
+    </course>
+    
+    <course id="math225" title="MATH 225" credits="4" readonly="true">
+    </course>
+    
+    <course id="math315" title="MATH 315" credits="3" readonly="true">
+    </course>
+    
+    <course id="math381" title="MATH 381" credits="3" readonly="true">
+    </course>
+    
+    <course id="math_elective" title="Math Elective" credits="3" readonly="false">
     </course>
   
   </table>
@@ -170,46 +155,23 @@ Science
     <header id="scienceHead" title="CSC Sophomore:">
     </header>
     
-    <course id="scireq1" title="Science Requirement" credits="" readonly="false">
+    <course id="phys211" title="PHYS 211" credits="3" readonly="true">
     </course>
     
-    <course id="scireq2" title="Science Requirement" credits="" readonly="false">
+    <course id="scireq1" title="Science" credits="3" readonly="false">
     </course>
     
-    <course id="scilab1" title="Science Requirement" credits="" readonly="false">
+    <course id="scireq2" title="Science" credits="3" readonly="false">
     </course>
     
-    <course id="scilab2" title="Science Requirement" credits="" readonly="false">
+    <course id="scilab1" title="Science Lab" credits="1" readonly="false">
+    </course>
+    
+    <course id="scilab2" title="Science Lab" credits="1" readonly="false">
     </course>
   
   </table>
 
-  
-  <!--***************************************************************************
-Arts and Humanities/Social Sciences
-****************************************************************************-->
-  <table id="libarts" total="15" color="rgba(204, 0, 0, .25)"
-         color1="#CC0000">
-    
-    <header id="libartsHead" title="Arts and Humanities/Social Sciences:">
-    </header>
-  
-    <course id="socsci1" title="Social Sciences" credits="" readonly="false">
-    </course>
-    
-    <course id="socsci2" title="Social Sciences" credits="" readonly="false">
-    </course>
-    
-    <course id="arthum1" title="Arts and Humanites" credits="" readonly="false">
-    </course>
-    
-    <course id="arthum2" title="Arts and Humanities" credits="" readonly="false">
-    </course>
-    
-    <course id="arthumsoc" title="Social Sciences" credits="" readonly="false">
-    </course>
-    
-  </table>
 <!--***************************************************************************
 Gen Ed
 ****************************************************************************-->
@@ -218,6 +180,21 @@ Gen Ed
     
     <header id="generalsHead" title="Gen Ed:">
     </header>
+  
+    <course id="socsci1" title="Social Science" credits="3" readonly="false">
+    </course>
+    
+    <course id="socsci2" title="Social Science" credits="3" readonly="false">
+    </course>
+    
+    <course id="arthum1" title="Arts/Humanites" credits="3" readonly="false">
+    </course>
+    
+    <course id="arthum2" title="Arts/Humanities" credits="3" readonly="false">
+    </course>
+    
+    <course id="arthumsoc" title="SS/Arts/Hum" credits="3" readonly="false">
+    </course>
   
   </table>
   
@@ -229,6 +206,15 @@ English
     
     <header id="englishHead" title="English:">
     </header>
+    
+    <course id="engl101" title="ENGL 101" credits="3" readonly="true">
+    </course>
+    
+    <course id="engl279" title="ENGL 279" credits="3" readonly="true">
+    </course>
+    
+    <course id="engl289" title="ENGL 289" credits="3" readonly="true">
+    </course>
   
   </table>
   
@@ -241,22 +227,22 @@ Free
     <header id="freeHead" title="Free:">
     </header>
     
-    <course id="free1" title="Social Sciences" credits="" readonly="false">
+    <course id="free1" title="" credits="" readonly="false">
     </course>
     
-    <course id="free2" title="Social Sciences" credits="" readonly="false">
+    <course id="free2" title="" credits="" readonly="false">
     </course>
     
-    <course id="free3" title="Social Sciences" credits="" readonly="false">
+    <course id="free3" title="" credits="" readonly="false">
     </course>
     
-    <course id="free4" title="Social Sciences" credits="" readonly="false">
+    <course id="free4" title="" credits="" readonly="false">
     </course>
     
-    <course id="free5" title="Social Sciences" credits="" readonly="false">
+    <course id="free5" title="" credits="" readonly="false">
     </course>
     
-    <course id="free6" title="Social Sciences" credits="" readonly="false">
+    <course id="free6" title="" credits="" readonly="false">
     </course>
   
   </table>
