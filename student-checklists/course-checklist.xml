@@ -178,7 +178,7 @@ courseList.xml and subsequently math.xml and csc.xml -->
 		<title>Senior</title>
 	
 		<course id ="csc421" isComplete="no">
-			<title>CSC 421 - Graphical User Interface </title>
+			<title>CSC 421 - Graphical User Interface</title>
 			<grade></grade>
 			<credits>3</credits>
 		</course>
@@ -202,7 +202,7 @@ courseList.xml and subsequently math.xml and csc.xml -->
 		</course>
 		
 		<course id ="math381" isComplete="no">
-			<title>MATH 381 - Intro. to Probability and Stats. </title>
+			<title>MATH 381 - Intro. to Probability and Stats.</title>
 			<grade></grade>
 			<credits>3</credits>
 		</course>
@@ -247,7 +247,7 @@ courseList.xml and subsequently math.xml and csc.xml -->
 		<title>Math Electives</title>
 	
 		<course id ="math_elective" isComplete="no">
-			<title>MATH _elective</title>
+			<title>Math Elective</title>
 			<grade></grade>
 			<credits></credits>
 		</course>
@@ -332,13 +332,13 @@ courseList.xml and subsequently math.xml and csc.xml -->
 		<course id ="free1" isComplete="no">
 			<title></title>+
 			<grade></grade>
-			<credits>7</credits>
+			<credits></credits>
         </course> 
         
         <course id ="free2" isComplete="no">
 			<title></title>+
 			<grade></grade>
-			<credits>7</credits>
+			<credits></credits>
         </course>  
         
         <course id ="free3" isComplete="no">
@@ -350,19 +350,19 @@ courseList.xml and subsequently math.xml and csc.xml -->
         <course id ="free4" isComplete="no">
 			<title></title>+
 			<grade></grade>
-			<credits>7</credits>
+			<credits></credits>
         </course>  
         
         <course id ="free5" isComplete="no">
 			<title></title>+
 			<grade></grade>
-			<credits>7</credits>
+			<credits></credits>
         </course>  
         
         <course id ="free6" isComplete="no">
 			<title></title>+
 			<grade></grade>
-			<credits>7</credits>
+			<credits></credits>
         </course>  
         
 	</free>
