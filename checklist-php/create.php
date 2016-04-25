@@ -5,7 +5,7 @@ include '..\\DansRepo\\includes\\mcs-user.php';
 
 $auth = MCSUSER::authenticate( '1640636', '021019871640636');
 
-echo $auth.value; 
+echo $auth; 
 
 if( MCSUSER::isAuthenticated())  // make sure user is logged in
 {
@@ -21,10 +21,11 @@ if( MCSUSER::isAuthenticated())  // make sure user is logged in
     
     if($_POST['save_btn'] == 'Submit')  // if the user has click the "save changes" button on the checklist html form
     {
-        echo print_r($_POST);
+        //echo print_r($_POST);
         
      
-        //$xml = new DomDocument("1.0", "UTF-8");
+        $xml = new DomDocument("1.0", "UTF-8");
+        $xml->formatOutput = true;
         
         //try to load the relevant xml file
         if( file_exists("..\\student-checklists\\{$file}"))
@@ -37,299 +38,304 @@ if( MCSUSER::isAuthenticated())  // make sure user is logged in
             $xml->asXML("..\\student-checklists\\{$file}");
         }
         
-    
+        //echo print_r($xml);
         // for each of the blocks in the checklist (csc classes, math classes, etc)
         foreach( $xml->children() as $unit)
         {
             //process each one individually, checking for POST requests relevant to the element
             if( $unit->getName() == 'standing' )
             {
-                if( $unit->standing['id'] == 'fresh' )  // if processing freshman courses
+                if( $unit['id'] == 'fresh' )  // if processing freshman courses
                 {
-                    foreach ($unit->standing->children() as $course) // for each required course of freshman level
+                   // echo print_r($xml);
+                    foreach ($unit->children() as $course) // for each required course of freshman level
                     {
                         if( $course['id'] == 'csc110' )  // csc 110
                         {
-                            if( $_POST["csc110_chbox"] ) // check to see if the state of the check box associated with the course has changed
+                            if( isset($_POST["csc110_chbox"] )) // check to see if the state of the check box associated with the course has changed
                             {
-                                $course['isComplete'] = $_POST['csc110_chbox'].Value;  // apply the change to the xml
+                                 // apply the change to the xml
+                                 $course['isComplete'] = $_POST['csc110_chbox'];
+                               
                             }
                             
-                            if( $_POST['csc110_grade'] )  // check to see if the state of the grade input form has changed
+                            if( isset($_POST['csc110_grade'] ))  // check to see if the state of the grade input form has changed
                             {
-                               $course->grade = $_POST['csc110_grade'].Value;  // apply the change to the xml
+                              $course->grade = $_POST['csc110_grade'];  // apply the change to the xml
+                              //$xml->$unit->$course->grade = $_POST['csc110_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");  // save the modified xml to file
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));  // save the modified xml to file
                             
                         }
                         else if( $course['id'] == 'csc150' )  // csc 150
                         {
-                            if( $_POST['csc150_chbox'])
+                            if( isset($_POST['csc150_chbox']))
                             {
-                                $course['isComplete'] = $_POST['csc150_chbox'].Value;
+                                $course['isComplete'] = $_POST['csc150_chbox'];
                             }
                             
                             if( $_POST['csc150_grade'] )
                             {
-                               $course->grade = $_POST['csc150_grade'].Value;
+                               $course->grade = $_POST['csc150_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'csc250' )  // csc 250 
                         {
-                            if( $_POST['csc250_chbox'] )
+                            if( isset($_POST['csc250_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['csc250_chbox'].Value;
+                                $course['isComplete'] = $_POST['csc250_chbox'];
                             }
                             
-                            if( $_POST['csc250_grade'] )
+                            if( isset($_POST['csc250_grade'] ))
                             {
-                               $course->grade = $_POST['csc250_grade'].Value;
+                               $course->grade = $_POST['csc250_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'csc251' )  // csc 251
                         {
-                            if( $_POST['csc251_chbox'] )
+                            if( isset($_POST['csc251_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['csc251_chbox'].Value;
+                                $course['isComplete'] = $_POST['csc251_chbox'];
                             }
                             
-                            if( $_POST['csc251_grade'] )
+                            if( isset($_POST['csc251_grade'] ))
                             {
-                               $course->grade = $_POST['csc251_grade'].Value;
+                               $course->grade = $_POST['csc251_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'math123' )
                         {
-                            if( $_POST['math123_chbox'] )
+                            if( isset($_POST['math123_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['math123_chbox'].Value();
+                                $course['isComplete'] = $_POST['math123_chbox']();
                             }
                             
-                            if( $_POST['math123_grade'] )
+                            if( isset($_POST['math123_grade'] ))
                             {
-                               $course->grade = $_POST['math123_grade'].Value;
+                               $course->grade = $_POST['math123_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                             
                         }
                         else if( $course['id'] == 'math125' )
                         {
-                            if( $_POST['math125_chbox'] )
+                            if( isset($_POST['math125_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['math125_chbox'].Value;
+                                $course['isComplete'] = $_POST['math125_chbox'];
                             }
                             
-                            if( $_POST['math125_grade'] )
+                            if( isset($_POST['math125_grade'] ))
                             {
-                               $course->grade = $_POST['math125_grade'].Value;
+                               $course->grade = $_POST['math125_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                             
                         }
                         else if( $course['id'] == 'engl101' )
                         {
-                            if( $_POST['engl101_chbox'] )
+                            if( isset($_POST['engl101_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['engl101_chbox'].Value;
+                                $course['isComplete'] = $_POST['engl101_chbox'];
                             }
                             
-                            if( $_POST['engl101_grade'] )
+                            if( isset($_POST['engl101_grade'] ))
                             {
-                               $course->grade = $_POST['engl101_grade'].Value;
+                               $course->grade = $_POST['engl101_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         
+                        
                     }
-                }
+                }   
                 else if( $unit ->standing['id'] == 'soph')  //if processing sophmore courses
                 {
-                    foreach ($unit->standing->children() as $course)  // for each required course at the sophmore level
+                    foreach ($unit->children() as $course)  // for each required course at the sophmore level
                     {
                         if($course['id'] == 'csc300')
                         {
-                            if( $_POST['csc300_chbox'] )
+                            if( isset($_POST['csc300_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['csc300_chbox'].Value;
+                                $course['isComplete'] = $_POST['csc300_chbox'];
                             }
                             
-                            if( $_POST['csc300_grade'] )
+                            if( isset($_POST['csc300_grade'] ))
                             {
-                               $course->grade = $_POST['csc300_grade'].Value;
+                               $course->grade = $_POST['csc300_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'csc314')
                         {
-                            if( $_POST['csc314_chbox'] )
+                            if( isset($_POST['csc314_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['csc314_chbox'].Value;
+                                $course['isComplete'] = $_POST['csc314_chbox'];
                             }
                             
-                            if( $_POST['csc314_grade'] )
+                            if( isset($_POST['csc314_grade'] ))
                             {
-                               $course->grade = $_POST['csc314_grade'].Value;
+                               $course->grade = $_POST['csc314_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'math225')
                         {
-                            if( $_POST['math225_chbox'] )
+                            if( isset($_POST['math225_chbox'] ))
                             { 
-                                $course['isComplete'] = $_POST['math225_chbox'].Value;
+                                $course['isComplete'] = $_POST['math225_chbox'];
                             }
                             
-                            if( $_POST['math225_grade'] )
+                            if( isset($_POST['math225_grade'] ))
                             {
-                               $course->grade = $_POST['math225_grade'].Value;
+                               $course->grade = $_POST['math225_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'math315')
                         {
-                            if( $_POST['math315_chbox'] )
+                            if( isset($_POST['math315_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['math315_chbox'].Value;
+                                $course['isComplete'] = $_POST['math315_chbox'];
                             }
                             
-                            if( $_POST['math315_grade'] )
+                            if( isset($_POST['math315_grade'] ))
                             {
-                               $course->grade = $_POST['math315_grade'].Value;
+                               $course->grade = $_POST['math315_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'engl279')
                         {
-                            if( $_POST['engl279_chbox'] )
+                            if( isset($_POST['engl279_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['engl279_chbox'].Value;
+                                $course['isComplete'] = $_POST['engl279_chbox'];
                             }
                             
-                            if( $_POST['engl279_grade'] )
+                            if( isset($_POST['engl279_grade'] ))
                             {
-                               $course->grade = $_POST['engl279_grade'].Value;
+                               $course->grade = $_POST['engl279_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                     }
 
                 }
                 else if ($unit->standing['id'] == 'junior')  // if processing junior level classes
                 {
-                    foreach ($unit->standing->children() as $course)  // for each required course of junior level
+                    foreach ($unit->children() as $course)  // for each required course of junior level
                     {
                         if($course['id'] == 'csc317')
                         {
-                            if( $_POST['csc317_chbox'] )
+                            if( isset($_POST['csc317_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['csc317_chbox'].Value;
+                                $course['isComplete'] = $_POST['csc317_chbox'];
                             }
                             
-                            if( $_POST['csc317_grade'] )
+                            if( isset($_POST['csc317_grade'] ))
                             {
-                               $course->grade = $_POST['csc317_grade'].Value;
+                               $course->grade = $_POST['csc317_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'csc372')
                         {
-                            if( $_POST['csc372_chbox'] )
+                            if( isset($_POST['csc372_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['csc372_chbox'].Value;
+                                $course['isComplete'] = $_POST['csc372_chbox'];
                             }
                             
-                            if( $_POST['csc372_grade'] )
+                            if( isset($_POST['csc372_grade'] ))
                             {
-                               $course->grade = $_POST['csc372_grade'].Value;
+                               $course->grade = $_POST['csc372_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'csc461')
                         {
-                            if( $_POST['csc461_chbox'] )
+                            if( isset($_POST['csc461_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['csc461_chbox'].Value;
+                                $course['isComplete'] = $_POST['csc461_chbox'];
                             }
                             
-                            if( $_POST['csc461_grade'] )
+                            if( isset($_POST['csc461_grade'] ))
                             {
-                               $course->grade = $_POST['csc461_grade'].Value;
+                               $course->grade = $_POST['csc461_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'csc484')
                         {
-                            if( $_POST['csc484_chbox'] )
+                            if( isset($_POST['csc484_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['csc484_chbox'].Value;
+                                $course['isComplete'] = $_POST['csc484_chbox'];
                             }
                             
-                            if( $_POST['csc484_grade'] )
+                            if( isset($_POST['csc484_grade'] ))
                             {
-                               $course->grade = $_POST['csc484_grade'].Value;
+                               $course->grade = $_POST['csc484_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'csc470')
                         {
-                            if( $_POST['csc470_chbox'] )
+                            if( isset($_POST['csc470_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['csc470_chbox'].Value;
+                                $course['isComplete'] = $_POST['csc470_chbox'];
                             }
                             
-                            if( $_POST['csc470_grade'] )
+                            if( isset($_POST['csc470_grade'] ))
                             {
-                               $course->grade = $_POST['csc470_grade'].Value;
+                               $course->grade = $_POST['csc470_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'engl289')
                         {
-                            if( $_POST['engl289_chbox'] )
+                            if( isset($_POST['engl289_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['engl289_chbox'].Value;
+                                $course['isComplete'] = $_POST['engl289_chbox'];
                             }
                             
-                            if( $_POST['engl289_grade'] )
+                            if( isset($_POST['engl289_grade'] ))
                             {
-                               $course->grade = $_POST['engl289_grade'].Value;
+                               $course->grade = $_POST['engl289_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'phys211')
                         {
-                            if( $_POST['phys211_chbox'] )
+                            if( isset($_POST['phys211_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['phys211_chbox'].Value;
+                                $course['isComplete'] = $_POST['phys211_chbox'];
                             }
                             
-                            if( $_POST['phys211_grade'] )
+                            if( isset($_POST['phys211_grade'] ))
                             {
-                               $course->grade = $_POST['phys211_grade'].Value;
+                               $course->grade = $_POST['phys211_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         
                     }
@@ -337,182 +343,182 @@ if( MCSUSER::isAuthenticated())  // make sure user is logged in
                 }
                 else if($unit->standing['id'] == 'senior')  // if processing senior level courses
                 {
-                    foreach ($unit->standing->children() as $course)  // for each required course at the senior level
+                    foreach ($unit->children() as $course)  // for each required course at the senior level
                     {
                         if($course['id'] == 'csc421')
                         {
-                            if( $_POST['csc421_chbox'] )
+                            if( isset($_POST['csc421_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['csc421_chbox'].Value;
+                                $course['isComplete'] = $_POST['csc421_chbox'];
                             }
                             
-                            if( $_POST['csc421_grade'] )
+                            if( isset($_POST['csc421_grade'] ))
                             {
-                               $course->grade = $_POST['csc421_grade'].Value;
+                               $course->grade = $_POST['csc421_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'csc465')
                         {
                             
-                            if( $_POST['csc465_chbox'] )
+                            if( isset($_POST['csc465_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['csc465_chbox'].Value;
+                                $course['isComplete'] = $_POST['csc465_chbox'];
                             }
                             
-                            if( $_POST['csc465_grade'] )
+                            if( isset($_POST['csc465_grade'] ))
                             {
-                               $course->grade = $_POST['csc465_grade'].Value;
+                               $course->grade = $_POST['csc465_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'csc467')
                         {
                             
-                            if( $_POST['csc467_chbox'] )
+                            if( isset($_POST['csc467_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['csc467_chbox'].Value;
+                                $course['isComplete'] = $_POST['csc467_chbox'];
                             }
                             
-                            if( $_POST['csc467_grade'] )
+                            if( isset($_POST['csc467_grade'] ))
                             {
-                               $course->grade = $_POST['csc467_grade'].Value;
+                               $course->grade = $_POST['csc467_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'csc456')
                         {
-                            if( $_POST['csc456_chbox'] )
+                            if( isset($_POST['csc456_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['csc456_chbox'].Value;
+                                $course['isComplete'] = $_POST['csc456_chbox'];
                             }
                             
-                            if( $_POST['csc456_grade'] )
+                            if( isset($_POST['csc456_grade'] ))
                             {
-                               $course->grade = $_POST['csc456_grade'].Value;
+                               $course->grade = $_POST['csc456_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'math381')
                         {
-                            if( $_POST['math381_chbox'] )
+                            if( isset($_POST['math381_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['math381_chbox'].Value;
+                                $course['isComplete'] = $_POST['math381_chbox'];
                             }
                             
-                            if( $_POST['math381_grade'] )
+                            if( isset($_POST['math381_grade'] ))
                             {
-                               $course->grade = $_POST['math381_grade'].Value;
+                               $course->grade = $_POST['math381_grade'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }                       
                     }                   
                 }               
             }
             else if ($unit->getName() == 'csc_elective')  // if processing the required csc elective courses
             {
-                foreach ($unit->csc_elective->children() as $course)  // for each of the said elective courses
+                foreach ($unit->children() as $course)  // for each of the said elective courses
                 {
                     if($course['id'] == 'cscelective1')
                     {
-                        if( $_POST['cscelective1_chbox'] )
+                        if( isset($_POST['cscelective1_chbox'] ))
                         {
-                            $course['isComplete'] = $_POST['cscelective1_chbox'].Value;
+                            $course['isComplete'] = $_POST['cscelective1_chbox'];
                         }
                         
-                        if( $_POST['cscelective1_grade'] )
+                        if( isset($_POST['cscelective1_grade'] ))
                         {
-                           $course->grade = $_POST['cscelective1_grade'].Value;
+                           $course->grade = $_POST['cscelective1_grade'];
                         }
                         
-                        if( $_POST['cscelective1_name'])  // need to check for the name of the elective and save it to xml
+                        if( isset($_POST['cscelective1_name']))  // need to check for the name of the elective and save it to xml
                         {
-                            $course->title = $_POST['cscelective1_name'].Value;
+                            $course->title = $_POST['cscelective1_name'];
                         }
                         
-                        if( $_POST['cscelective1_credits'])  // need to check for the credit value of the elective and save it to xml
+                        if( isset($_POST['cscelective1_credits']) ) // need to check for the credit value of the elective and save it to xml
                         {
-                            $course->credits = $_POST['cscelective1_credits'].Value;
+                            $course->credits = $_POST['cscelective1_credits'];
                         }
                         
-                        $xml->save("..\\student-checklists\\{$file}");
+                        htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                     }
                     else if( $course['id'] == 'csccelective2')
                     {
-                        if( $_POST['cscelective2_chbox'] )
+                        if( isset($_POST['cscelective2_chbox'] ))
                         {
-                            $course['isComplete'] = $_POST['cscelective2_chbox'].Value;
+                            $course['isComplete'] = $_POST['cscelective2_chbox'];
                         }
                         
-                        if( $_POST['cscelective2_grade'] )
+                        if( isset($_POST['cscelective2_grade'] ))
                         {
-                           $course->grade = $_POST['cscelective2_grade'].Value;
+                           $course->grade = $_POST['cscelective2_grade'];
                         }
                         
-                        if( $_POST['cscelective2_name'])
+                        if( isset($_POST['cscelective2_name']))
                         {
-                            $course->title = $_POST['cscelective2_name'].Value;
+                            $course->title = $_POST['cscelective2_name'];
                         }
                         
-                        if( $_POST['cscelective2_credits'])
+                        if( isset($_POST['cscelective2_credits']))
                         {
-                            $course->credits = $_POST['cscelective2_credits'].Value;
+                            $course->credits = $_POST['cscelective2_credits'];
                         }
                         
-                        $xml->save("..\\student-checklists\\{$file}");
+                        htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                     }
                     else if( $course['id'] == 'cscelective3')
                     {
-                        if( $_POST['cscelective3_chbox'] )
+                        if( isset($_POST['cscelective3_chbox'] ))
                         {
-                            $course['isComplete'] = $_POST['cscelective3_chbox'].Value;
+                            $course['isComplete'] = $_POST['cscelective3_chbox'];
                         }
                         
-                        if( $_POST['cscelective3_grade'] )
+                        if( isset($_POST['cscelective3_grade'] ))
                         {
-                           $course->grade = $_POST['cscelective3_grade'].Value;
+                           $course->grade = $_POST['cscelective3_grade'];
                         }
                         
-                        if( $_POST['cscelective3_name'])
+                        if( isset($_POST['cscelective3_name']))
                         {
-                            $course->title = $_POST['cscelective3_name'].Value;
+                            $course->title = $_POST['cscelective3_name'];
                         }
                         
-                        if( $_POST['cscelective3_credits'])
+                        if( isset($_POST['cscelective3_credits']))
                         {
-                            $course->credits = $_POST['cscelective3_credits'].Value;
+                            $course->credits = $_POST['cscelective3_credits'];
                         }
                         
-                        $xml->save("..\\student-checklists\\{$file}");
+                        htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                     }
                     else if( $course['id'] == 'cscelective4')
                     {
-                        if( $_POST['cscelective4_chbox'] )
+                        if( isset($_POST['cscelective4_chbox'] ))
                         {
-                            $course['isComplete'] = $_POST['cscelective4_chbox'].Value;
+                            $course['isComplete'] = $_POST['cscelective4_chbox'];
                         }
                         
-                        if( $_POST['cscelective4_grade'] )
+                        if( isset($_POST['cscelective4_grade'] ))
                         {
-                           $course->grade = $_POST['cscelective4_grade'].Value;
+                           $course->grade = $_POST['cscelective4_grade'];
                         }
                         
-                        if( $_POST['cscelective4_name'])
+                        if( isset($_POST['cscelective4_name']))
                         {
-                            $course->title = $_POST['cscelective4_name'].Value;
+                            $course->title = $_POST['cscelective4_name'];
                         }
                         
-                        if( $_POST['cscelective4_credits'])
+                        if( isset($_POST['cscelective4_credits']))
                         {
-                            $course->credits = $_POST['cscelective4_credits'].Value;
+                            $course->credits = $_POST['cscelective4_credits'];
                         }
                         
-                        $xml->save("..\\student-checklists\\{$file}");
+                        htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                     }
                     
                 }
@@ -520,127 +526,127 @@ if( MCSUSER::isAuthenticated())  // make sure user is logged in
             }
             else if($unit->getName() == 'math_elective')  // if processing the required math elective course
             {
-                if( $_POST['math_elective_chbox'] )
+                if( isset($_POST['math_elective_chbox'] ))
                 {
-                    $course['isComplete'] = $_POST['math_elective_chbox'].Value;
+                    $course['isComplete'] = $_POST['math_elective_chbox'];
                 }
                 
-                if( $_POST['math_elective_grade'] )
+                if( isset($_POST['math_elective_grade'] ))
                 {
-                   $course->grade = $_POST['math_elective_grade'].Value;
+                   $course->grade = $_POST['math_elective_grade'];
                 }
                 
-                if( $_POST['math_elective_name'])
+                if( isset($_POST['math_elective_name']))
                 {
-                    $course->title = $_POST['math_elective_name'].Value;
+                    $course->title = $_POST['math_elective_name'];
                 }
                 
-                if( $_POST['math_elective_credits'])
+                if( isset($_POST['math_elective_credits']))
                 {
-                    $course->credits = $_POST['math_elective_credits'].Value;
+                    $course->credits = $_POST['math_elective_credits'];
                 }
                 
-                $xml->save("..\\student-checklists\\{$file}");
+                htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
             }
             else if( $unit->getName() == 'science_requirement')  // if processing the required science courses
             {
-                foreach ($unit->science_requirement->children() as $course)
+                foreach ($unit->children() as $course)
                     {
                         if($course['id'] == 'scireq1')
                         {
-                            if( $_POST['scireq1_chbox'] )
+                            if( isset($_POST['scireq1_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['scireq1_chbox'].Value;
+                                $course['isComplete'] = $_POST['scireq1_chbox'];
                             }
                             
-                            if( $_POST['scireq1_grade'] )
+                            if( isset($_POST['scireq1_grade'] ))
                             {
-                               $course->grade = $_POST['scireq1_grade'].Value;
+                               $course->grade = $_POST['scireq1_grade'];
                             }
                             
-                            if( $_POST['scireq1_name'])
+                            if( isset($_POST['scireq1_name']))
                             {
-                                $course->title = $_POST['scireq1_name'].Value;
+                                $course->title = $_POST['scireq1_name'];
                             }
                             
-                            if( $_POST['scireq1_credits'])
+                            if( isset($_POST['scireq1_credits']))
                             {
-                                $course->credits = $_POST['scireq1_credits'].Value;
+                                $course->credits = $_POST['scireq1_credits'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'scireq2')
                         {
-                            if( $_POST['scireq2_chbox'] )
+                            if( isset($_POST['scireq2_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['scireq2_chbox'].Value;
+                                $course['isComplete'] = $_POST['scireq2_chbox'];
                             }
                             
-                            if( $_POST['scireq2_grade'] )
+                            if( isset($_POST['scireq2_grade'] ))
                             {
-                               $course->grade = $_POST['scireq2_grade'].Value;
+                               $course->grade = $_POST['scireq2_grade'];
                             }
                             
-                            if( $_POST['scireq2_name'])
+                            if( isset($_POST['scireq2_name']))
                             {
-                                $course->title = $_POST['scireq2_name'].Value;
+                                $course->title = $_POST['scireq2_name'];
                             }
                             
-                            if( $_POST['scireq2_credits'])
+                            if( isset($_POST['scireq2_credits']))
                             {
-                                $course->credits = $_POST['scireq2_credits'].Value;
+                                $course->credits = $_POST['scireq2_credits'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'scilab1')
                         {
-                            if( $_POST['scilab1_chbox'] )
+                            if( isset($_POST['scilab1_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['scilab1_chbox'].Value;
+                                $course['isComplete'] = $_POST['scilab1_chbox'];
                             }
                             
-                            if( $_POST['scilab1_grade'] )
+                            if( isset($_POST['scilab1_grade'] ))
                             {
-                               $course->grade = $_POST['scilab1_grade'].Value;
+                               $course->grade = $_POST['scilab1_grade'];
                             }
                             
-                            if( $_POST['scilab1_name'])
+                            if( isset($_POST['scilab1_name']))
                             {
-                                $course->title = $_POST['scilab1_name'].Value;
+                                $course->title = $_POST['scilab1_name'];
                             }
                             
-                            if( $_POST['scilab1_credits'])
+                            if( isset($_POST['scilab1_credits']))
                             {
-                                $course->credits = $_POST['scilab1_credits'].Value;
+                                $course->credits = $_POST['scilab1_credits'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'scilab2')
                         {
-                            if( $_POST['scilab2_chbox'] )
+                            if( isset($_POST['scilab2_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['scilab2_chbox'].Value;
+                                $course['isComplete'] = $_POST['scilab2_chbox'];
                             }
                             
-                            if( $_POST['scilab2_grade'] )
+                            if( isset($_POST['scilab2_grade'] ))
                             {
-                               $course->grade = $_POST['scilab2_grade'].Value;
+                               $course->grade = $_POST['scilab2_grade'];
                             }
                             
-                            if( $_POST['scilab2_name'])
+                            if( isset($_POST['scilab2_name']))
                             {
-                                $course->title = $_POST['scilab2_name'].Value;
+                                $course->title = $_POST['scilab2_name'];
                             }
                             
-                            if( $_POST['scilab2_credits'])
+                            if( isset($_POST['scilab2_credits']))
                             {
-                                $course->credits = $_POST['scilab2_credits'].Value;
+                                $course->credits = $_POST['scilab2_credits'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         
                     }
@@ -648,127 +654,127 @@ if( MCSUSER::isAuthenticated())  // make sure user is logged in
             }
             else if($unit->getName() == 'libarts')
             {
-                foreach ($unit->libarts->children() as $course)
+                foreach ($unit->children() as $course)
                     {
                         if($course['id'] == 'socsci1')
                         {
-                            if( $_POST['socsci1_chbox'] )
+                            if( isset($_POST['socsci1_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['socsci1_chbox'].Value;
+                                $course['isComplete'] = $_POST['socsci1_chbox'];
                             }
                             
-                            if( $_POST['socsci1_grade'] )
+                            if( isset($_POST['socsci1_grade'] ))
                             {
-                               $course->grade = $_POST['socsci1_grade'].Value;
+                               $course->grade = $_POST['socsci1_grade'];
                             }
                             
-                            if( $_POST['socsci1_name'])
+                            if( isset($_POST['socsci1_name']))
                             {
-                                $course->title = $_POST['socsci1_name'].Value;
+                                $course->title = $_POST['socsci1_name'];
                             }
                             
-                            if( $_POST['socsci1_credits'])
+                            if( isset($_POST['socsci1_credits']))
                             {
-                                $course->credits = $_POST['socsci1_credits'].Value;
+                                $course->credits = $_POST['socsci1_credits'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'socsci2')
                         {
-                            if( $_POST['socsci2_chbox'] )
+                            if( isset($_POST['socsci2_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['socsci2_chbox'].Value;
+                                $course['isComplete'] = $_POST['socsci2_chbox'];
                             }
                             
-                            if( $_POST['socsci2_grade'] )
+                            if( isset($_POST['socsci2_grade'] ))
                             {
-                               $course->grade = $_POST['socsci2_grade'].Value;
+                               $course->grade = $_POST['socsci2_grade'];
                             }
                             
-                            if( $_POST['socsci2_name'])
+                            if( isset($_POST['socsci2_name']))
                             {
-                                $course->title = $_POST['socsci2_name'].Value;
+                                $course->title = $_POST['socsci2_name'];
                             }
                             
-                            if( $_POST['socsci2_credits'])
+                            if( isset($_POST['socsci2_credits']))
                             {
-                                $course->credits = $_POST['socsci2_credits'].Value;
+                                $course->credits = $_POST['socsci2_credits'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'arthum1')
                         {
-                            if( $_POST['arthum1_chbox'] )
+                            if( isset($_POST['arthum1_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['arthum1_chbox'].Value;
+                                $course['isComplete'] = $_POST['arthum1_chbox'];
                             }
                             
-                            if( $_POST['arthum1_grade'] )
+                            if( isset($_POST['arthum1_grade'] ))
                             {
-                               $course->grade = $_POST['arthum1_grade'].Value;
+                               $course->grade = $_POST['arthum1_grade'];
                             }
                             
-                            if( $_POST['arthum1_name'])
+                            if( isset($_POST['arthum1_name']))
                             {
-                                $course->title = $_POST['arthum1_name'].Value;
+                                $course->title = $_POST['arthum1_name'];
                             }
                             
-                            if( $_POST['arthum1_credits'])
+                            if( isset($_POST['arthum1_credits']))
                             {
-                                $course->credits = $_POST['arthum1_credits'].Value;
+                                $course->credits = $_POST['arthum1_credits'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'arthum2')
                         {
-                            if( $_POST['arthum2_chbox'] )
+                            if( isset($_POST['arthum2_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['arthum2_chbox'].Value;
+                                $course['isComplete'] = $_POST['arthum2_chbox'];
                             }
                             
-                            if( $_POST['arthum2_grade'] )
+                            if( isset($_POST['arthum2_grade'] ))
                             {
-                               $course->grade = $_POST['arthum2_grade'].Value;
+                               $course->grade = $_POST['arthum2_grade'];
                             }
                             
-                            if( $_POST['arthum2_name'])
+                            if( isset($_POST['arthum2_name']))
                             {
-                                $course->title = $_POST['arthum2_name'].Value;
+                                $course->title = $_POST['arthum2_name'];
                             }
                             
-                            if( $_POST['arthum2_credits'])
+                            if( isset($_POST['arthum2_credits']))
                             {
-                                $course->credits = $_POST['arthum2_credits'].Value;
+                                $course->credits = $_POST['arthum2_credits'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         else if( $course['id'] == 'arthumsoc')
                         {
-                            if( $_POST['arthumsoc_chbox'] )
+                            if( isset($_POST['arthumsoc_chbox'] ))
                             {
-                                $course['isComplete'] = $_POST['arthumsoc_chbox'].Value;
+                                $course['isComplete'] = $_POST['arthumsoc_chbox'];
                             }
                             
-                            if( $_POST['arthumsoc_grade'] )
+                            if( isset($_POST['arthumsoc_grade'] ))
                             {
-                               $course->grade = $_POST['arthumsoc_grade'].Value;
+                               $course->grade = $_POST['arthumsoc_grade'];
                             }
                             
-                            if( $_POST['arthumsoc_name'])
+                            if( isset($_POST['arthumsoc_name']))
                             {
-                                $course->title = $_POST['arthumsoc_name'].Value;
+                                $course->title = $_POST['arthumsoc_name'];
                             }
                             
-                            if( $_POST['arthumsoc_credits'])
+                            if( isset($_POST['arthumsoc_credits']))
                             {
-                                $course->credits = $_POST['arthumsoc_credits'].Value;
+                                $course->credits = $_POST['arthumsoc_credits'];
                             }
                             
-                            $xml->save("..\\student-checklists\\{$file}");
+                            htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                         }
                         
                     }
@@ -776,151 +782,151 @@ if( MCSUSER::isAuthenticated())  // make sure user is logged in
             }
             else if( $unit->getName() == 'free')
             {
-                foreach ($unit->free->children() as $course )
+                foreach ($unit->children() as $course )
                 {
                     if($course['id'] == 'free1')
                     {
-                        if( $_POST['free1_chbox'] )
+                        if( isset($_POST['free1_chbox'] ))
                         {
-                            $course['isComplete'] = $_POST['free1_chbox'].Value;
+                            $course['isComplete'] = $_POST['free1_chbox'];
                         }
                         
-                        if( $_POST['free1_grade'] )
+                        if( isset($_POST['free1_grade'] ))
                         {
-                           $course->grade = $_POST['free1_grade'].Value;
+                           $course->grade = $_POST['free1_grade'];
                         }
                         
-                        if( $_POST['free1_name'])  // need to check for the name of the elective and save it to xml
+                        if( isset($_POST['free1_name'])) // need to check for the name of the elective and save it to xml
                         {
-                            $course->title = $_POST['free1_name'].Value;
+                            $course->title = $_POST['free1_name'];
                         }
                         
-                        if( $_POST['free1_credits'])  // need to check for the credit value of the elective and save it to xml
+                        if( isset($_POST['free1_credits']) ) // need to check for the credit value of the elective and save it to xml
                         {
-                            $course->credits = $_POST['free1_credits'].Value;
+                            $course->credits = $_POST['free1_credits'];
                         }
                         
-                        $xml->save("..\\student-checklists\\{$file}");
+                        htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                     }
                     else if( $course['id'] == 'free2')
                     {
-                        if( $_POST['free2_chbox'] )
+                        if( isset($_POST['free2_chbox'] ))
                         {
-                            $course['isComplete'] = $_POST['free2_chbox'].Value;
+                            $course['isComplete'] = $_POST['free2_chbox'];
                         }
                         
-                        if( $_POST['free2_grade'] )
+                        if( isset($_POST['free2_grade'] ))
                         {
-                           $course->grade = $_POST['free2_grade'].Value;
+                           $course->grade = $_POST['free2_grade'];
                         }
                         
-                        if( $_POST['free2_name'])
+                        if( isset($_POST['free2_name']))
                         {
-                            $course->title = $_POST['free2_name'].Value;
+                            $course->title = $_POST['free2_name'];
                         }
                         
-                        if( $_POST['free2_credits'])
+                        if( isset($_POST['free2_credits']))
                         {
-                            $course->credits = $_POST['free2_credits'].Value;
+                            $course->credits = $_POST['free2_credits'];
                         }
                         
-                        $xml->save("..\\student-checklists\\{$file}");
+                        htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                     }
                     else if( $course['id'] == 'free3')
                     {
-                        if( $_POST['free3_chbox'] )
+                        if( isset($_POST['free3_chbox'] ))
                         {
-                            $course['isComplete'] = $_POST['free3_chbox'].Value;
+                            $course['isComplete'] = $_POST['free3_chbox'];
                         }
                         
-                        if( $_POST['free3_grade'] )
+                        if( isset($_POST['free3_grade'] ))
                         {
-                           $course->grade = $_POST['free3_grade'].Value;
+                           $course->grade = $_POST['free3_grade'];
                         }
                         
-                        if( $_POST['free3_name'])
+                        if( isset($_POST['free3_name']))
                         {
-                            $course->title = $_POST['free3_name'].Value;
+                            $course->title = $_POST['free3_name'];
                         }
                         
-                        if( $_POST['free3_credits'])
+                        if( isset($_POST['free3_credits']))
                         {
-                            $course->credits = $_POST['free3_credits'].Value;
+                            $course->credits = $_POST['free3_credits'];
                         }
                         
-                        $xml->save("..\\student-checklists\\{$file}");
+                        htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                     }
                     else if( $course['id'] == 'free4')
                     {
-                        if( $_POST['free4_chbox'] )
+                        if( isset($_POST['free4_chbox'] ))
                         {
-                            $course['isComplete'] = $_POST['free4_chbox'].Value;
+                            $course['isComplete'] = $_POST['free4_chbox'];
                         }
                         
-                        if( $_POST['free4_grade'] )
+                        if( isset($_POST['free4_grade'] ))
                         {
-                           $course->grade = $_POST['free4_grade'].Value;
+                           $course->grade = $_POST['free4_grade'];
                         }
                         
-                        if( $_POST['free4_name'])
+                        if( isset($_POST['free4_name']))
                         {
-                            $course->title = $_POST['free4_name'].Value;
+                            $course->title = $_POST['free4_name'];
                         }
                         
-                        if( $_POST['free4_credits'])
+                        if( isset($_POST['free4_credits']))
                         {
-                            $course->credits = $_POST['free4_credits'].Value;
+                            $course->credits = $_POST['free4_credits'];
                         }
                         
-                        $xml->save("..\\student-checklists\\{$file}");
+                        htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                 }
                 else if( $course['id'] == 'free5')
                     {
-                        if( $_POST['free5_chbox'] )
+                        if( isset($_POST['free5_chbox'] ))
                         {
-                            $course['isComplete'] = $_POST['free5_chbox'].Value;
+                            $course['isComplete'] = $_POST['free5_chbox'];
                         }
                         
-                        if( $_POST['free5_grade'] )
+                        if( isset($_POST['free5_grade'] ))
                         {
-                           $course->grade = $_POST['free5_grade'].Value;
+                           $course->grade = $_POST['free5_grade'];
                         }
                         
-                        if( $_POST['free5_name'])
+                        if( isset($_POST['free5_name']))
                         {
-                            $course->title = $_POST['free5_name'].Value;
+                            $course->title = $_POST['free5_name'];
                         }
                         
-                        if( $_POST['free5_credits'])
+                        if( isset($_POST['free5_credits']))
                         {
-                            $course->credits = $_POST['free5_credits'].Value;
+                            $course->credits = $_POST['free5_credits'];
                         }
                         
-                        $xml->save("..\\student-checklists\\{$file}");
+                        htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                 }
                 else if( $course['id'] == 'free6')
                     {
-                        if( $_POST['free6_chbox'] )
+                        if( isset($_POST['free6_chbox'] ))
                         {
-                            $course['isComplete'] = $_POST['free6_chbox'].Value;
+                            $course['isComplete'] = $_POST['free6_chbox'];
                         }
                         
-                        if( $_POST['free6_grade'] )
+                        if( isset($_POST['free6_grade'] ))
                         {
-                           $course->grade = $_POST['free6_grade'].Value;
+                           $course->grade = $_POST['free6_grade'];
                         }
                         
-                        if( $_POST['free6_name'])
+                        if( isset($_POST['free6_name']))
                         {
-                            $course->title = $_POST['free6_name'].Value;
+                            $course->title = $_POST['free6_name'];
                         }
                         
-                        if( $_POST['free6_credits'])
+                        if( isset($_POST['free6_credits']))
                         {
-                            $course->credits = $_POST['free6_credits'].Value;
+                            $course->credits = $_POST['free6_credits'];
                         }
                         
-                        $xml->save("..\\student-checklists\\{$file}");
+                        htmlentities($xml->asXML("..\\student-checklists\\{$file}"));
                 }
             }   
             
@@ -956,6 +962,7 @@ if( MCSUSER::isAuthenticated())  // make sure user is logged in
         
         
     }
+    
 }
 
 
