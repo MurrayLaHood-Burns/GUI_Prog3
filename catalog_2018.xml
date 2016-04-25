@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<catalog total="120">
+  
+  <table id="cscFresh" total="12" color="rgba(0, 153, 204)">
+    
+    <header id="cscFreshHead" title="CSC Freshman:">
+    </header>
+    
+    <course id="csc110" title="CSC 110" credits="1" readonly="true">
+    </course>
+
+    <course id="csc150" title="CSC 150/L" credits="3" readonly="true">
+    </course>
+
+    <course id="csc250" title="CSC 250" credits="4" readonly="true">
+    </course>
+
+    <course id="csc251" title="CSC 251" credits="4" readonly="true">
+    </course>
+
+  </table>
+  
+</catalog>

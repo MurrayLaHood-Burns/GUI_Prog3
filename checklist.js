@@ -1,5 +1,6 @@
 /********************************** globals **********************************/
 var totalCreditsPossible = 120;
+var date_array = {"test": "","2017": "","luke": ""};
 
 /*****************************************************************************
 init
@@ -11,12 +12,6 @@ function init()
     // add event handler to graduation date drop box that changes the page content
 	gradDate.onchange = function ()
 	{
-        // initialize page values
-	    var date_array = {
-	        "test": window.grad_test,
-	        "2017": window.grad_2017(),
-            "luke" : window.grad_luke
-	    };
 
         // get selected grad date
 	    var gradDate = document.getElementById("grad_date");
@@ -32,6 +27,11 @@ function init()
 	var catalog = document.getElementById("catalog");
     $(catalog).replaceWith(window.grad_test);
     initCatalog();
+
+    // initialize page values
+	date_array["test"] = window.grad_test;
+	date_array["2017"] = window.grad_2017();
+	date_array["luke"] = window.grad_luke;
 }
 
 
@@ -83,7 +83,7 @@ function initTable(table, color)
 		GPABoxes[i].onchange=function()
 		{
 			var row = this.parentNode.parentNode;
-			var currTable = this.parentNode.parentNode.parentNode.parentNode;
+			var currTable = this.parentNode.parentNode.parentNode;
 			var checkBox = row.getElementsByClassName("checkbox")[0];
 			if(checkBox.checked)
 				updateTable(currTable);
