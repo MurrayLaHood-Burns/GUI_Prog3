@@ -6,12 +6,45 @@ init
 ******************************************************************************/
 function init()
 {
-	var tables = document.getElementsByClassName("table");
-	var i;
-	for(i = 0; i< tables.length; i++)
+    var gradDate = document.getElementById("grad_date");
+
+    // add event handler to graduation date drop box that changes the page content
+	gradDate.onchange = function ()
 	{
-		initTable(tables[i],tables[i].dataset.color)
+        // initialize page values
+	    var date_array = {
+	        "test": window.grad_test,
+	        "2017": window.grad_2017,
+            "luke" : window.grad_luke
+	    };
+
+        // get selected grad date
+	    var gradDate = document.getElementById("grad_date");
+	    var date = gradDate.value;
+	    var catalog = document.getElementById("catalog");
+
+        // replace page with grad date content
+	    $(catalog).replaceWith(date_array[date]);
+	    initCatalog();
 	}
+
+    // initialize default year on page open/refresh
+	var catalog = document.getElementById("catalog");
+    $(catalog).replaceWith(window.grad_test);
+    initCatalog();
+}
+
+
+/*****************************************************************************
+initCatalog
+******************************************************************************/
+function initCatalog()
+{
+    var tables = document.getElementsByClassName("table");
+    var i;
+    for (i = 0; i < tables.length; i++) {
+        initTable(tables[i], tables[i].dataset.color)
+    }
 }
 
 /*****************************************************************************
@@ -146,6 +179,7 @@ function updateStats()
 	
 	var i;
 	
+    // total the statistic data stored in tables
 	for(i=0; i<tables.length; i++)
 	{
 		dataset = tables[i].dataset;
@@ -160,14 +194,17 @@ function updateStats()
 			sumCredComplete += parseInt(dataset.complete);
 	}
 	
+    // calculate gpa
 	if(sumCredGPA == 0)
 		cumulativeGPA = 0;
 	else
 		cumulativeGPA = sumQualityPoints/sumCredGPA;
 	
+    // calculate progress bar values
 	percentComplete = sumCredComplete/totalCreditsPossible * 100;
 	percentInProgress = sumInProgress/totalCreditsPossible * 100;
 	
+    // set html values
 	progress.value = Math.round(percentComplete).toString() + "%";
 	gpa.value = cumulativeGPA.toFixed(2);
 	completedCredits.value = sumCredComplete;
