@@ -1,7 +1,10 @@
-<?xml version = "1.0" encoding "utf-8" ?>
+<?xml version = "1.0" encoding = "utf-8" ?>
 
 <!-- courseList.dtd - a document type for a students check list that references
 courseList.xml and subsequently math.xml and csc.xml -->
+
+
+<!DOCTYPE checklist [
 
 <!ELEMENT checklist (cscFresh, cscSoph, cscJunior, cscSenior, csc_elective, math, math_elective, science, libArts, english, free)>
 <!ELEMENT standing (color1, color2, title, course+)>
@@ -26,6 +29,7 @@ courseList.xml and subsequently math.xml and csc.xml -->
 <!ATTLIST science_requirement id ID #REQUIRED>
 <!ATTLIST libarts id ID #REQUIRED>
 <!ATTLIST free id ID #REQUIRED>
+]>
 <!-- attribute will be used like this: <course isComplete="no"> </course> --> 
 
 
@@ -34,7 +38,7 @@ courseList.xml and subsequently math.xml and csc.xml -->
 	<standing id="fresh">
 	
 		<color1>rgb(0, 153, 204)</color1>
-		<color2>rgba(0, 153, 204, .25)</color>
+		<color2>rgba(0, 153, 204, .25)</color2>
 		<title>Freshman</title>
 
 		<course id ="csc110" isComplete="no">
@@ -73,7 +77,7 @@ courseList.xml and subsequently math.xml and csc.xml -->
 			<credits>4</credits>
 		</course>
 		
-		<course id ="engl101 isComplete="no">
+		<course id ="engl101" isComplete="no">
 			<title>ENGL 101 - Composition I</title>
 			<grade></grade>
 			<credits>3</credits>
@@ -84,7 +88,7 @@ courseList.xml and subsequently math.xml and csc.xml -->
 	<standing id="soph">
 
 		<color1>rgb(0, 153, 204)</color1>
-		<color2>rgba(0, 153, 204, .25)</color>
+		<color2>rgba(0, 153, 204, .25)</color2>
 		<title>Sophmore</title>
 		
 		<course id ="csc300" isComplete="no">
@@ -121,11 +125,11 @@ courseList.xml and subsequently math.xml and csc.xml -->
     <standing id="junior">
     
 		<color1>rgb(0, 153, 204)</color1>
-		<color2>rgba(0, 153, 204, .25)</color>
+		<color2>rgba(0, 153, 204, .25)</color2>
 		<title>Junior</title>
 		
 		<course id ="csc317" isComplete="no">
-			<title>CSC 317 - Computer Org & Arch</title>
+			<title>CSC 317 - Computer Org and Arch</title>
 			<grade></grade>
 			<credits>3</credits>
 		</course>
@@ -170,7 +174,7 @@ courseList.xml and subsequently math.xml and csc.xml -->
 	<standing id="senior">
 
 		<color1>rgb(0, 153, 204)</color1>
-		<color2>rgba(0, 153, 204, .25)</color>
+		<color2>rgba(0, 153, 204, .25)</color2>
 		<title>Senior</title>
 	
 		<course id ="csc421" isComplete="no">
@@ -198,7 +202,7 @@ courseList.xml and subsequently math.xml and csc.xml -->
 		</course>
 		
 		<course id ="math381" isComplete="no">
-			<title>MATH 381 - Intro. to Probability & Stats. </title>
+			<title>MATH 381 - Intro. to Probability and Stats. </title>
 			<grade></grade>
 			<credits>3</credits>
 		</course>
@@ -207,41 +211,42 @@ courseList.xml and subsequently math.xml and csc.xml -->
 	<csc_elective id="cscelect">
 
 		<color1>rgb(0, 153, 204)</color1>
-		<color2>rgba(0, 153, 204, .25)</color>
+		<color2>rgba(0, 153, 204, .25)</color2>
 		<title>CSC Electives</title>
 	
-		<course id ="upperlevcsc1" isComplete="no">
+		<course id ="cscelective1" isComplete="no">
 			<title>Upper Level CSC _elective</title>
 			<grade></grade>
 			<credits></credits>
 		</course>
 		
-		<course id ="upperlevcsc2" isComplete="no">
+		<course id ="cscelective2" isComplete="no">
 			<title>Upper Level CSC _elective</title>
 			<grade></grade>
 			<credits></credits>
 		</course>
 		
-		<course id ="upperlevcsc3" isComplete="no">
+		<course id ="cscelective3" isComplete="no">
 			<title>Upper Level CSC _elective</title>
 			<grade></grade>
 			<credits></credits>
 		</course>
 		
-		<course id ="upperlevcsc4" isComplete="no">
+		<course id ="cscelective4" isComplete="no">
 			<title>Upper Level CSC _elective</title>
 			<grade></grade>
 			<credits></credits>
 		</course>
 		
 	</csc_elective>
+    
 	<math_elective id="mathelect">
 
 		<color1>rgb(0, 153, 204)</color1>
-		<color2>rgba(0, 153, 204, .25)</color>
+		<color2>rgba(0, 153, 204, .25)</color2>
 		<title>Math Electives</title>
 	
-		<course id ="mathelect" isComplete="no">
+		<course id ="math_elective" isComplete="no">
 			<title>MATH _elective</title>
 			<grade></grade>
 			<credits></credits>
@@ -251,7 +256,7 @@ courseList.xml and subsequently math.xml and csc.xml -->
 	<science_requirement id="science">
 
 		<color1>rgb(0, 153, 204)</color1>
-		<color2>rgba(0, 153, 204, .25)</color>
+		<color2>rgba(0, 153, 204, .25)</color2>
 		<title>Required Science</title>
         
 		<course id ="scireq1" isComplete="no">
@@ -283,8 +288,8 @@ courseList.xml and subsequently math.xml and csc.xml -->
 	<libarts id="libarts">
 
 		<color1>rgb(0, 153, 204)</color1>
-		<color2>rgba(0, 153, 204, .25)</color>
-		<title>Arts & Humanities/Social Sciences</title>
+		<color2>rgba(0, 153, 204, .25)</color2>
+		<title>Arts and Humanities/Social Sciences</title>
     
 		<course id ="socsci1" isComplete="no">
 			<title>Social Sciences</title>
@@ -299,29 +304,29 @@ courseList.xml and subsequently math.xml and csc.xml -->
         </course>
         
         <course id ="arthum1" isComplete="no">
-			<title>Arts & Humanities</title>
+			<title>Arts and Humanities</title>
 			<grade></grade>
 			<credits></credits>
         </course>
         
         <course id ="arthum2" isComplete="no">
-			<title>Arts & Humanities</title>
+			<title>Arts and Humanities</title>
 			<grade></grade>
 			<credits></credits>
         </course>
         
         <course id ="arthumsoc" isComplete="no">
-			<title>Arts & Humanities/Social Sciences</title>
+			<title>Arts and Humanities/Social Sciences</title>
 			<grade></grade>
 			<credits></credits>
         </course>
         
-	<libarts>
+	</libarts>
 	
 	<free id="free">
 
 		<color1>rgb(0, 153, 204)</color1>
-		<color2>rgba(0, 153, 204, .25)</color>
+		<color2>rgba(0, 153, 204, .25)</color2>
 		<title>Free Electives</title>
         
 		<course id ="free1" isComplete="no">
@@ -363,4 +368,3 @@ courseList.xml and subsequently math.xml and csc.xml -->
 	</free>
     
 </checklist>
--->
