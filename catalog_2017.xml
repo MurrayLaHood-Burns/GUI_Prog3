@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<catalog total="120">
+  
+<!--***************************************************************************
+CSC Freshman
+****************************************************************************-->
+  <table id="cscFresh" total="12" color="rgba(0, 153, 204, .25)"
+         color1="#0099CC">
+    
+    <header id="cscFreshHead" title="CSC Freshman:">
+    </header>
+    
+    <course id="csc110" title="CSC 110" credits="1" readonly="true">
+    </course>
+
+    <course id="csc150" title="CSC 150/L" credits="3" readonly="true">
+    </course>
+
+    <course id="csc250" title="CSC 250" credits="4" readonly="true">
+    </course>
+
+    <course id="csc251" title="CSC 251" credits="4" readonly="true">
+    </course>
+
+  </table>
+  
+<!--***************************************************************************
+CSC Sophomore
+****************************************************************************-->
+  <table id="cscSoph" total="7" color="rgba(0, 153, 204, .25)"
+         color1="#0099CC">
+    
+    <header id="cscSophHead" title="CSC Sophomore:">
+    </header>
+    
+    <course id="csc300" title="CSC 300" credits="4" readonly="true">
+    </course>
+    
+    <course id="csc314" title="CSC 314" credits="3" readonly="true">
+    </course>
+  
+  </table>
+  
+<!--***************************************************************************
+CSC Junior
+****************************************************************************-->
+  <table id="cscJun" total="19" color="rgba(0, 153, 204, .25)"
+         color1="#0099CC">
+    
+    <header id="cscJunHead" title="CSC Junior:">
+    </header>
+    
+    <course id="csc317" title="CSC 317" credits="3" readonly="true">
+    </course>
+  
+    <course id="csc372" title="CSC 372" credits="3" readonly="true">
+    </course>
+    
+    <course id="csc461" title="CSC 461" credits="4" readonly="true">
+    </course>
+    
+    <course id="csc468" title="CSC 468" credits="3" readonly="true">
+    </course>
+    
+    <course id="csc470" title="CSC 470" credits="3" readonly="true">
+    </course>
+    
+    <course id="csc484" title="CSC 484" credits="3" readonly="true">
+    </course>
+  
+  </table>
+  
+<!--***************************************************************************
+CSC Senior
+****************************************************************************-->
+  <table id="cscSen" total="8" color="rgba(0, 153, 204, .25)"
+         color1="#0099CC">
+    
+    <header id="cscSenHead" title="CSC Senior:">
+    </header>
+  
+  </table>
+  
+<!--***************************************************************************
+CSC Electives
+****************************************************************************-->
+  <table id="cscElect" total="12" color="rgba(0, 153, 204, .25)"
+         color1="#0099CC">
+    
+    <header id="cscElectHead" title="CSC Electives:">
+    </header>
+  
+  </table>
+  
+<!--***************************************************************************
+Math
+****************************************************************************-->
+  <table id="math" total="21" color="rgba(51, 102, 255, .25)"
+         color1="#3366FF">
+    
+    <header id="mathHead" title="Math:">
+    </header>
+  
+  </table>
+  
+<!--***************************************************************************
+Science
+****************************************************************************-->
+  <table id="science" total="11" color="rgba(153, 102, 255, .25)"
+         color1="#9966FF">
+    
+    <header id="scienceHead" title="CSC Sophomore:">
+    </header>
+  
+  </table>
+  
+<!--***************************************************************************
+Gen Ed
+****************************************************************************-->
+  <table id="generals" total="15" color="rgba(204, 0, 0, .25)"
+         color1="#CC0000">
+    
+    <header id="generalsHead" title="Gen Ed:">
+    </header>
+  
+  </table>
+  
+<!--***************************************************************************
+English
+****************************************************************************-->
+  <table id="english" total="9" color="rgba(0, 153, 51, .25)"
+         color1="#009933">
+    
+    <header id="englishHead" title="English:">
+    </header>
+  
+  </table>
+  
+<!--***************************************************************************
+Free
+****************************************************************************-->
+  <table id="free" total="7" color="rgba(255, 153, 0, .25)"
+         color1="#FF9900">
+    
+    <header id="freeHead" title="Free:">
+    </header>
+  
+  </table>
+  
+</catalog>
